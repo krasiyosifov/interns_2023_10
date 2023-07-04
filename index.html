@@ -34,32 +34,87 @@
                 <h2 id="task" class="text-primary">Text here!</h2>
             </div>
             <div class="col-md-5 col-sm-5" style="text-align: center;">
-                <div style="padding-bottom: 7px;">
-                    <button class="btn btn-primary" id="one">1</button>
-                    <button class="btn btn-primary" id="two">2</button>
-                    <button class="btn btn-primary" id="three">3</button>
-                    <button onclick="plus()" class="btn btn-primary"
+                <style>
+                    .btn3d {
+	                    position: relative;
+	                    top: -6px;
+	                    border: 0;
+	                    transition: all 20ms linear;
+	                    margin-top: 8px;
+	                    margin-bottom: 5px;
+	                    margin-left: 1px;
+	                    margin-right: 1px;
+                    }
+                        .btn3d:active:focus,
+                        .btn3d:focus:hover,
+                        .btn3d:focus {
+	                    -moz-outline-style: none;
+	                    outline: medium none;
+                    }
+
+                        .btn3d:active,
+                        .btn3d.active {
+	                    top: 2px;
+                    }
+                        .btn3d.btn-success {
+	                    box-shadow: 0 0 0 1px #31c300 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 #5eb924, 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+	                    background-color: #78d739;
+                    }
+
+                        .btn3d.btn-success:active,
+                        .btn3d.btn-success.active {
+	                    box-shadow: 0 0 0 1px #30cd00 inset, 0 0 0 1px rgba(255, 255, 255, 0.15) inset, 0 1px 3px 1px rgba(0, 0, 0, 0.3);
+	                    background-color: #78d739;
+                    }
+
+                        .btn3d.btn-primary {
+	                    box-shadow: 0 0 0 1px #417fbd inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 #4D5BBE, 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+	                    background-color: #4274D7;
+                    }
+
+                        .btn3d.btn-primary:active,
+                        .btn3d.btn-primary.active {
+	                    box-shadow: 0 0 0 1px #417fbd inset, 0 0 0 1px rgba(255, 255, 255, 0.15) inset, 0 1px 3px 1px rgba(0, 0, 0, 0.3);
+	                    background-color: #4274D7;
+                    }
+                        .btn3d.btn-danger {
+	                    box-shadow: 0 0 0 1px #b93802 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 #AA0000, 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+	                    background-color: #D73814;
+                    }
+
+                        .btn3d.btn-danger:active,
+                        .btn3d.btn-danger.active {
+	                    box-shadow: 0 0 0 1px #b93802 inset, 0 0 0 1px rgba(255, 255, 255, 0.15) inset, 0 1px 3px 1px rgba(0, 0, 0, 0.3);
+	                    background-color: #D73814;
+                    }
+
+                </style>
+                <div style="padding-bottom: 2px;">
+                    <button class="btn btn-primary btn-lg btn3d" id="one">1</button>
+                    <button class="btn btn-primary btn-lg btn3d" id="two">2</button>
+                    <button class="btn btn-primary btn-lg btn3d" id="three">3</button>
+                    <button onclick="plus()" class="btn btn-primary btn-lg btn3d"
                         style="margin-left: 20px; padding: 6px 13px;">+</button>
                 </div>
-                <div style="padding-bottom: 7px;">
-                    <button class="btn btn-primary" id="foure">4</button>
-                    <button class="btn btn-primary" id="five">5</button>
-                    <button class="btn btn-primary" id="six">6</button>
-                    <button class="btn btn-primary" style="margin-left: 20px; padding: 7px 15px;">-</button>
+                <div style="padding-bottom: 2px;">
+                    <button class="btn btn-primary btn-lg btn3d" id="foure">4</button>
+                    <button class="btn btn-primary btn-lg btn3d" id="five">5</button>
+                    <button class="btn btn-primary btn-lg btn3d" id="six">6</button>
+                    <button class="btn btn-primary btn-lg btn3d" style="margin-left: 20px; padding: 8px 15px;">-</button>
                 </div>
-                <div style="padding-bottom: 7px;">
-                    <button class="btn btn-primary" id="seven">7</button>
-                    <button class="btn btn-primary" id="eight">8</button>
-                    <button class="btn btn-primary" id="nine">9</button>
-                    <button class="btn btn-primary" style="margin-left: 20px; padding: 7px 15px;">/</button>
+                <div style="padding-bottom: 2px;">
+                    <button class="btn btn-primary btn-lg btn3d" id="seven">7</button>
+                    <button class="btn btn-primary btn-lg btn3d" id="eight">8</button>
+                    <button class="btn btn-primary btn-lg btn3d" id="nine">9</button>
+                    <button class="btn btn-primary btn-lg btn3d" style="margin-left: 20px; padding: 8px 15px;">/</button>
                 </div>
-                <div style="padding-bottom: 7px;">
-                    <button class="btn btn-primary" id="zero">0</button>
-                    <button class="btn btn-primary" style="padding: 7px 17px;" id="enter">Enter</button>
-                    <button class="btn btn-primary" style="margin-left: 21px; padding: 7px 15px;">*</button>
+                <div style="padding-bottom: 2x;">
+                    <button class="btn btn-primary btn-lg btn3d" id="zero">0</button>
+                    <button class="btn btn-success btn-lg btn3d" style="padding: 8px 25px; " id="enter">Enter</button>
+                    <button class="btn btn-primary btn-lg btn3d" style="margin-left: 16px; padding: 8px 15px;">*</button>
                 </div>
                 <div>
-                    <button class="btn btn-danger" style="padding: 7px 69px;" id="Clear">Clear</button>
+                    <button class="btn btn-danger btn-lg btn3d" style="padding: 8px 80px;" id="Clear">Clear</button>
                 </div>
             </div>  
         </div>
