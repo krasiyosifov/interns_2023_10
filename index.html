@@ -9,7 +9,10 @@
       rel="stylesheet"
     />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  </head>
+    <script src="game.js"></script>
+</head>
+
+<body>
 
   <body>
     <!-- Home screen container start -->
@@ -22,10 +25,36 @@
 
     <!-- Game screen container start-->
     <div id="game" class="container-fluid">
-      <div class="row">
-        <div class="col-md-5 col-sm-5">
-          <h1 class="">MathMATE</h1>
-          <h2 id="task" class=".text-primary .bg-danger">Text here!</h2>
+        <div class="row">
+            <div class="col-md-5 col-sm-5">
+                <h1 class="">MathMATE</h1>
+                <h2 id="task" class=".text-primary .bg-danger">Text here!</h2>
+            </div>
+            <div class="col-md-5 col-sm-5">
+                <div style="padding-bottom: 5px;">
+                    <button onclick="plus()" class="btn btn-primary">+</button>
+                    <button class="btn btn-primary">-</button>
+                    <button class="btn btn-primary">/</button>
+                    <button class="btn btn-primary">*</button>
+                <div style="padding-bottom: 5px;">
+                    <button class="btn btn-primary" id="ëdno">1</button>
+                    <button class="btn btn-primary" id="dve">2</button>
+                    <button class="btn btn-primary" id="tri">3</button>
+                </div>
+                <div style="padding-bottom: 5px;">
+                    <button class="btn btn-primary" id="chetiri">4</button>
+                    <button class="btn btn-primary" id="pet">5</button>
+                    <button class="btn btn-primary" id="shes">6</button>
+                </div>
+                <div style="padding-bottom: 5px;">
+                    <button class="btn btn-primary" id="sedem">7</button>
+                    <button class="btn btn-primary" id="osem">8</button>
+                    <button class="btn btn-primary" id="devet">9</button>
+                </div>
+                <div class = "align-items-center" style="padding-bottom: 5px;">
+                    <button class="btn btn-primary" id="nula">0</button>
+                </div>
+            </div>  
         </div>
         <div class="col-md-5 col-sm-5">
           <div style="padding-bottom: 5px">
