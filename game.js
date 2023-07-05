@@ -37,6 +37,17 @@ function minus(){
     getNumbers(true);
     document.getElementById("task").innerHTML = numFirst + " - " + numSecond + " = ";
 }
+function multiplication(){
+    getNumbers(false);
+    document.getElementById("task").innerHTML = numFirst + " * " + numSecond + " = ";
+}
+function division(){
+    do{
+       getNumbers(true); 
+    }
+    while(numFirst<numSecond && numFirst%numSecond != 0);
+    document.getElementById("task").innerHTML = numFirst + " / " + numSecond + " = ";
+}
 function numeros(num){
     let add = document.getElementById("task").append(num);
 }
