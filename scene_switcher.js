@@ -1,4 +1,3 @@
-// import {randomTask} from 'game.js';
 function homeMenu(){
     let home = document.getElementById("homesn");
     let game = document.getElementById("gamesn");
