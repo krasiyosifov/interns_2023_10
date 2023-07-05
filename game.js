@@ -54,13 +54,6 @@ function division(){
 function numeros(num){
     let add = document.getElementById("task").append(num);
 }
-
-function muliplication(){
-    console.log("multi");
-}
-function division(){
-    console.log("div");
-}
 function clearInput(){
     let task = document.getElementById("task").innerHTML.substring(0, 8);
     document.getElementById("task").innerHTML = task;
@@ -78,10 +71,10 @@ function checkAnswer(){
         break;
         case "-": minus();
         break;
-        // case "*": muliplication();
-        // break;
-        // case "/": division();
-        // break;
+        case "*": muliplication();
+        break;
+        case "/": division();
+        break;
     }
 }
 
@@ -91,9 +84,9 @@ function randomTask(){
         break;
         case 2: minus();
         break;
-        // case 3: muliplication();
-        // break;
-        // case 4: division();
-        // break;
+        case 3: muliplication();
+        break;
+        case 4: division();
+        break;
     }
 }
