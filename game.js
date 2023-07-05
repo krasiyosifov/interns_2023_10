@@ -78,7 +78,7 @@ function clearInput(){
 function checkAnswer(){
     rounds++;
     let userAnswer = document.getElementById("task").innerHTML.substring(8, 13);
-    if(answer == Number(userAnswer)){
+    if(userAnswer != "" && answer == Number(userAnswer)){
         points++;
         console.log("Earned Point!");
     }
