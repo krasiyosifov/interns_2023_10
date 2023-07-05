@@ -5,8 +5,8 @@ let error;
 let numFirst = 0;
 let numSecond = 0;
 // hide scenes
-document.getElementById("homesn").classList.add("d-none");
-document.getElementById("endsn").classList.add("d-none");
+// document.getElementById("homesn").classList.add("d-none");
+// document.getElementById("endsn").classList.add("d-none");
 
 
 function randomNumbers(num, ssm){
