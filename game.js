@@ -4,10 +4,6 @@ let points = 0;
 let error;
 let numFirst = 0;
 let numSecond = 0;
-// hide scenes
-document.getElementById("homesn").classList.add("d-none");
-document.getElementById("endsn").classList.add("d-none");
-
 
 function randomNumbers(num, ssm){
     if(ssm){
@@ -20,7 +16,6 @@ function randomNumbers(num, ssm){
         numFirst = Math.floor(Math.random()*num);
         numSecond = Math.floor(Math.random()*num);
     }
-    
 }
 function getNumbers(ssm){
     switch(difficulty){
@@ -36,13 +31,18 @@ function getNumbers(ssm){
 }
 function plus(){
     getNumbers(false);
-    let res = numFirst + numSecond;
-    document.getElementById("task").innerHTML = numFirst + " + " + numSecond + " = " + res;
+    document.getElementById("task").innerHTML = numFirst + " + " + numSecond + " = ";
 }
 function minus(){
     getNumbers(true);
-    document.getElementById("task").innerHTML = numFirst + " - " + numSecond + " = " + (numFirst-numSecond);
+    document.getElementById("task").innerHTML = numFirst + " - " + numSecond + " = ";
 }
 function numeros(num){
-    
+    let add = document.getElementById("task").append(num);
+}
+
+function clearInput(){
+    let task = document.getElementById("task").innerHTML.substring(0, 7);
+    document.getElementById("task").innerHTML = task;
+    console.log(task);
 }
