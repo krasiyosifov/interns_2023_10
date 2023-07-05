@@ -1,5 +1,6 @@
 let difficulties = ["easy", "normal", "hard"];
 let difficulty = difficulties[0];
+let type;
 let points = 0;
 let error;
 let numFirst = 0;
@@ -32,10 +33,12 @@ function getNumbers(ssm){
 function plus(){
     getNumbers(false);
     document.getElementById("task").innerHTML = numFirst + " + " + numSecond + " = ";
+    type = "+";
 }
 function minus(){
     getNumbers(true);
     document.getElementById("task").innerHTML = numFirst + " - " + numSecond + " = ";
+    type = "-";
 }
 function numeros(num){
     let add = document.getElementById("task").append(num);
@@ -46,5 +49,33 @@ function clearInput(){
     console.log(task);
 }
 function checkAnswer(){
-    
+    points++;
+    if(points>=5){
+        document.getElementById("gamesn").classList.add("d-none");
+        document.getElementById("endsn").classList.remove("d-none");
+        points=0;
+    }
+    switch(type){
+        case "+": plus();
+        break;
+        case "-": minus();
+        break;
+        case "*": muliplication();
+        break;
+        case "/": division();
+        break;
+    }
+}
+
+function randomTask(){
+    switch(Math.round(Math.random()*4+1)){
+        case 1: plus();
+        break;
+        case 2: minus();
+        break;
+        case 3: muliplication();
+        break;
+        case 4: division();
+        break;
+    }
 }
