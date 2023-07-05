@@ -44,5 +44,5 @@ function minus(){
     document.getElementById("task").innerHTML = numFirst + " - " + numSecond + " = " + (numFirst-numSecond);
 }
 function numeros(num){
-    
+    let task = document.getElementById("task").append(num);
 }
