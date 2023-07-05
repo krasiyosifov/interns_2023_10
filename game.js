@@ -1,7 +1,7 @@
 let difficulties = ["easy", "normal", "hard"];
 let difficulty = difficulties[0];
 let type;
-let points =0;
+let points = 0;
 let error;
 let myAnswer = "";
 let answer = 0;
@@ -42,16 +42,13 @@ function minus(){
     document.getElementById("task").innerHTML = numFirst + " - " + numSecond + " = ";
     type = "-";
 }
-function numeros(num){
-    let add = document.getElementById("task").append(num);
-    myAnswer = myAnswer + "" + num;
-}
 
 function multiplication(){
     getNumbers(false);
     document.getElementById("task").innerHTML = numFirst + " * " + numSecond + " = ";
     type = "*";
 }
+
 function division(){
     do{
        getNumbers(true); 
@@ -60,13 +57,16 @@ function division(){
     document.getElementById("task").innerHTML = numFirst + " / " + numSecond + " = ";
     type = "/";
 }
+
 function numeros(num){
-    document.getElementById("task").append(num);
+    let add = document.getElementById("task").append(num);
+    myAnswer = myAnswer + "" + num;
+    console.log(myAnswer);
 }
+
 function clearInput(){
     let task = document.getElementById("task").innerHTML.substring(0, 8);
     document.getElementById("task").innerHTML = task;
-    console.log(task);
     myAnswer = "";
 }
 function checkAnswer(){
@@ -90,7 +90,6 @@ function checkAnswer(){
     } 
     myAnswer = "";
     console.log("points: " + points);
-    console.log(myAnswer);
 
     switch(type){
         case "+": plus();
@@ -103,7 +102,6 @@ function checkAnswer(){
         break;
     }
 }
-
 function randomTask(){
     switch(Math.round(Math.random()*4+1)){
         case 1: plus();
