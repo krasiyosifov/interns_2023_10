@@ -43,6 +43,7 @@ function minus(){
 function multiplication(){
     getNumbers(false);
     document.getElementById("task").innerHTML = numFirst + " * " + numSecond + " = ";
+    type = "*";
 }
 function division(){
     do{
@@ -50,9 +51,10 @@ function division(){
     }
     while(numFirst<numSecond && numFirst%numSecond != 0);
     document.getElementById("task").innerHTML = numFirst + " / " + numSecond + " = ";
+    type = "/";
 }
 function numeros(num){
-    let add = document.getElementById("task").append(num);
+    document.getElementById("task").append(num);
 }
 function clearInput(){
     let task = document.getElementById("task").innerHTML.substring(0, 8);
@@ -71,7 +73,7 @@ function checkAnswer(){
         break;
         case "-": minus();
         break;
-        case "*": muliplication();
+        case "*": multiplication();
         break;
         case "/": division();
         break;
@@ -84,7 +86,7 @@ function randomTask(){
         break;
         case 2: minus();
         break;
-        case 3: muliplication();
+        case 3: multiplication();
         break;
         case 4: division();
         break;
