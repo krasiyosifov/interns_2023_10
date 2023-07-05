@@ -8,6 +8,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="game.js"></script>
+    <style>
+      body{
+          min-width:500px;        /* Suppose you want minimum width of 1000px */
+          width: auto !important;  /* Firefox will set width as auto */
+          }
+  </style>
 </head>
 
 <body style="background-color: lightblue;">
@@ -129,21 +135,15 @@
             <div class="d-flex flex-column align-items-center">
                 <h4 style="border: solid 3px #24247b; border-radius: 15px; padding: 5px; padding-left: 15px; padding-right: 15px; text-align: center;">Result: 2/5</h4>
                 <div class="flex-row">
-                    <button class="btn mx-1 btn-light btn-lg" style="background-color: #37a3e6; border: 2px solid #1c9ae8; width: 20vw; margin-top: 5px;">Play again</button>
-                    <button class="btn mx-1 btn-light btn-lg" style="background-color: #37a3e6; border: 2px solid #1c9ae8; width: 20vw; margin-top: 5px;">Next level</button>
+                    <button class="btn mx-1 btn-light btn-lg" style="background-color: #37a3e6; border: 2px solid #1c9ae8; margin-top: 5px;">Play again</button>
+                    <button class="btn mx-1 btn-light btn-lg" style="background-color: #37a3e6; border: 2px solid #1c9ae8;  margin-top: 5px;">Next level</button>
                 </div>
             </div>
             <div class="d-flex col-8 col-xs-7 col-sm-6 col-md-5 col-lg-4 col-xl-3 align-self-center justify-content-center">
                 <img class="img-fluid" src="./images/emoji.png" alt="emoji" style="margin-top: 40px;"/>
             </div>
         </div>
-        <div class="col-sm-6">
-          <img
-            class="img-fluid"
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Twemoji_1f600.svg/1200px-Twemoji_1f600.svg.png"
-            alt="emoji"
-          />
-        </div>
+        
       </div>
     </div>
     <!-- End screen container end -->
