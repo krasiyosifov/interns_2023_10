@@ -2,8 +2,8 @@ let difficulties = ["easy", "normal", "hard"];
 let difficulty = difficulties[0];
 let type;
 let points = 0;
-let error;
-let myAnswer = "";
+let rounds = 0;
+let myAnswer;
 let answer = 0;
 let numFirst = 0;
 let numSecond = 0;
@@ -29,24 +29,30 @@ function getNumbers(ssm){
         case "hard": randomNumbers(1000, ssm);
         break;
     }
-    //console.log("first: "+ numFirst);
-    //console.log("second: "+ numSecond);
+    console.log("first: "+ numFirst);
+    console.log("second: "+ numSecond);
 }
 function plus(){
     getNumbers(false);
     document.getElementById("task").innerHTML = numFirst + " + " + numSecond + " = ";
     type = "+";
+    answer = numFirst + numSecond;
+    console.log(answer);
 }
 function minus(){
     getNumbers(true);
     document.getElementById("task").innerHTML = numFirst + " - " + numSecond + " = ";
     type = "-";
+    answer = numFirst - numSecond;
+    console.log(answer);
 }
 
 function multiplication(){
     getNumbers(false);
     document.getElementById("task").innerHTML = numFirst + " * " + numSecond + " = ";
     type = "*";
+    answer = numFirst * numSecond;
+    console.log(answer);
 }
 
 function division(){
@@ -56,40 +62,34 @@ function division(){
     while(numFirst<numSecond && numFirst%numSecond != 0);
     document.getElementById("task").innerHTML = numFirst + " / " + numSecond + " = ";
     type = "/";
+
+    answer = numFirst / numSecond;
+    console.log(answer);
 }
 
 function numeros(num){
-    let add = document.getElementById("task").append(num);
-    myAnswer = myAnswer + "" + num;
-    console.log(myAnswer);
+    document.getElementById("task").append(num);
 }
 
 function clearInput(){
     let task = document.getElementById("task").innerHTML.substring(0, 8);
     document.getElementById("task").innerHTML = task;
-    myAnswer = "";
 }
 function checkAnswer(){
-    if (type == "+") {
-       answer = numFirst + numSecond;
-    } else if (type == "-") {
-        answer = numFirst - numSecond;
-    } else if (type == "*") {
-        answer = numFirst * numSecond;
-    } else if (type == "/") {
-        answer = numFirst / numSecond;
-    }
-    console.log(answer);
-    if(answer == myAnswer){
+    rounds++;
+    let userAnswer = document.getElementById("task").innerHTML.substring(8, 13);
+    if(answer == Number(userAnswer)){
         points++;
-        if(points>=5) {
-            document.getElementById("gamesn").classList.add("d-none");
-            document.getElementById("endsn").classList.remove("d-none");
-            points=0;
-        }
-    } 
-    myAnswer = "";
-    console.log("points: " + points);
+        console.log("Earned Point!");
+    }
+    
+    if(rounds == 5){
+        document.getElementById("gamesn").classList.add("d-none");
+        document.getElementById("endsn").classList.remove("d-none");
+        document.getElementById("result").innerHTML = "Result " + points + "/5";
+        rounds=0;
+        points=0;
+    }
 
     switch(type){
         case "+": plus();
