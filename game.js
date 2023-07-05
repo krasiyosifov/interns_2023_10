@@ -29,8 +29,8 @@ function getNumbers(ssm){
         case "hard": randomNumbers(1000, ssm);
         break;
     }
-    console.log("first: "+ numFirst);
-    console.log("second: "+ numSecond);
+    //console.log("first: "+ numFirst);
+    //console.log("second: "+ numSecond);
 }
 function plus(){
     getNumbers(false);
@@ -47,11 +47,21 @@ function numeros(num){
     myAnswer = myAnswer + "" + num;
 }
 
-function muliplication(){
-    console.log("multi");
+function multiplication(){
+    getNumbers(false);
+    document.getElementById("task").innerHTML = numFirst + " * " + numSecond + " = ";
+    type = "*";
 }
 function division(){
-    console.log("div");
+    do{
+       getNumbers(true); 
+    }
+    while(numFirst<numSecond && numFirst%numSecond != 0);
+    document.getElementById("task").innerHTML = numFirst + " / " + numSecond + " = ";
+    type = "/";
+}
+function numeros(num){
+    document.getElementById("task").append(num);
 }
 function clearInput(){
     let task = document.getElementById("task").innerHTML.substring(0, 8);
@@ -69,6 +79,7 @@ function checkAnswer(){
     } else if (type == "/") {
         answer = numFirst / numSecond;
     }
+    console.log(answer);
     if(answer == myAnswer){
         points++;
         if(points>=5) {
@@ -78,16 +89,18 @@ function checkAnswer(){
         }
     } 
     myAnswer = "";
+    console.log("points: " + points);
+    console.log(myAnswer);
 
     switch(type){
         case "+": plus();
         break;
         case "-": minus();
         break;
-        // case "*": muliplication();
-        // break;
-        // case "/": division();
-        // break;
+        case "*": multiplication();
+        break;
+        case "/": division();
+        break;
     }
 }
 
@@ -97,9 +110,9 @@ function randomTask(){
         break;
         case 2: minus();
         break;
-        // case 3: muliplication();
-        // break;
-        // case 4: division();
-        // break;
+        case 3: multiplication();
+        break;
+        case 4: division();
+        break;
     }
 }

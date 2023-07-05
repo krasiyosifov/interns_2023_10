@@ -2,216 +2,162 @@
 <html lang="en">
 
 <head>
-  <title>MathMate</title>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="game.js"></script>
-  <script src="scene_switcher.js"></script>
-  <style>
-    .btn3d {
-      position: relative;
-      top: -6px;
-      border: 0;
-      transition: all 20ms linear;
-      margin-top: 8px;
-      margin-bottom: 5px;
-      margin-left: 1px;
-      margin-right: 1px;
-    }
+    <title>MathMate</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="game.js"></script>
+    <script src="scene_switcher.js"></script>
+    <style>
+        .btn3d {
+            position: relative;
+            top: -6px;
+            border: 0;
+            transition: all 20ms linear;
+            margin-top: 8px;
+            margin-bottom: 5px;
+            margin-left: 1px;
+            margin-right: 1px;
+        }
+            .btn3d:active:focus,
+            .btn3d:focus:hover,
+            .btn3d:focus {
+            -moz-outline-style: none;
+            outline: medium none;
+        }
 
-    .btn3d:active:focus,
-    .btn3d:focus:hover,
-    .btn3d:focus {
-      -moz-outline-style: none;
-      outline: medium none;
-    }
+            .btn3d:active,
+            .btn3d.active {
+            top: 2px;
+        }
+            .btn3d.btn-success {
+            box-shadow: 0 0 0 1px #363062 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 #363062, 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+            background-color: #4D4C7D;
+        }
 
-    .btn3d:active,
-    .btn3d.active {
-      top: 2px;
-    }
+            .btn3d.btn-success:active,
+            .btn3d.btn-success.active {
+            box-shadow: 0 0 0 1px #363062 inset, 0 0 0 1px rgba(255, 255, 255, 0.15) inset, 0 1px 3px 1px rgba(0, 0, 0, 0.3);
+            background-color: #4D4C7D;
+        }
 
-    .btn3d.btn-success {
-      box-shadow: 0 0 0 1px #363062 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 #363062,
-        0 8px 8px 1px rgba(0, 0, 0, 0.5);
-      background-color: #4d4c7d;
-    }
+            .btn3d.btn-primary {
+            box-shadow: 0 0 0 1px #827397 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 #827397, 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+            background-color: #898AA6;
+        }
 
-    .btn3d.btn-success:active,
-    .btn3d.btn-success.active {
-      box-shadow: 0 0 0 1px #363062 inset, 0 0 0 1px rgba(255, 255, 255, 0.15) inset, 0 1px 3px 1px rgba(0, 0, 0, 0.3);
-      background-color: #4d4c7d;
-    }
+            .btn3d.btn-primary:active,
+            .btn3d.btn-primary.active {
+            box-shadow: 0 0 0 1px #827397 inset, 0 0 0 1px rgba(255, 255, 255, 0.15) inset, 0 1px 3px 1px rgba(0, 0, 0, 0.3);
+            background-color: #898AA6;
+        }
+            .btn3d.btn-danger {
+            box-shadow: 0 0 0 1px #371B58 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 #371B58, 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+            background-color: #4C3575;
+        }
 
-    .btn3d.btn-primary {
-      box-shadow: 0 0 0 1px #827397 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 #827397,
-        0 8px 8px 1px rgba(0, 0, 0, 0.5);
-      background-color: #898aa6;
-    }
+            .btn3d.btn-danger:active,
+            .btn3d.btn-danger.active {
+            box-shadow: 0 0 0 1px #371B58 inset, 0 0 0 1px rgba(255, 255, 255, 0.15) inset, 0 1px 3px 1px rgba(0, 0, 0, 0.3);
+            background-color: #4C3575;
+        }
 
-    .btn3d.btn-primary:active,
-    .btn3d.btn-primary.active {
-      box-shadow: 0 0 0 1px #827397 inset, 0 0 0 1px rgba(255, 255, 255, 0.15) inset, 0 1px 3px 1px rgba(0, 0, 0, 0.3);
-      background-color: #898aa6;
-    }
-
-    .btn3d.btn-danger {
-      box-shadow: 0 0 0 1px #371b58 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 #371b58,
-        0 8px 8px 1px rgba(0, 0, 0, 0.5);
-      background-color: #4c3575;
-    }
-
-    .btn3d.btn-danger:active,
-    .btn3d.btn-danger.active {
-      box-shadow: 0 0 0 1px #371b58 inset, 0 0 0 1px rgba(255, 255, 255, 0.15) inset, 0 1px 3px 1px rgba(0, 0, 0, 0.3);
-      background-color: #4c3575;
-    }
-  </style>
+    </style>
 </head>
 
-<body style="background-color: #f0d9ff">
-  <!-- Home screen container start -->
-  <div id="homesn" class="container min-vh-100">
-    <div class="row">
-      <div class="col col-lg-8 col-12">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col">
-              <h1 class="text-center" style="
-                    color: #827397;
-                    font-size: 12vw;
-                    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-                  ">
-                MathMate
-              </h1>
+<body style="background-color: #F0D9FF;">
+    <!-- Home screen container start -->
+    <div id="homesn" class="container-fluid row min-vh-100">
+        <div class="d-flex flex-column flex-lg-row align-items-center justify-content-center">
+            <div class="d-flex flex-column align-items-center justify-content-center">
+                <h1 class="text-center" style="color:#827397; font-size: 12vw; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; ">MathMate</h1>
+                <div class="d-flex flex-row align-items-center justify-content-center">
+                    <button class="btn mx-1 btn-light btn-lg" style="background-color: #827397; border: 2px solid #4D4C7D; width: 25vw; margin-top: 5px; color: #F0D9FF; font-size: 20px;" onclick="gameStart()">Play</button>
+                    <button class="btn mx-1 btn-light btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="background-color: #827397; border: 2px solid #4D4C7D; width: 25vw; margin-top: 5px; color: #F0D9FF; font-size: 20px;">Info</button>    
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Information</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                                <div class="modal-body">
+                                Opisanie
+                                </div>
+                            </div>
+                        </div>
+                    <!-- End Modal -->                              
+                
+                </div>
             </div>
-          </div>
-          <div class="row mt-lg-5">
-            <button class="btn mx-1 btn-light btn-lg col" style="
-                  background-color: #827397;
-                  border: 2px solid #4d4c7d;
-                  margin-top: 5px;
-                  color: #f0d9ff;
-                  font-size: 20px;
-                " onclick="gameStart()">
-              Play
-            </button>
-            <button class="btn mx-1 btn-light btn-lg col" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="
-                  background-color: #827397;
-                  border: 2px solid #4d4c7d;
-                  margin-top: 5px;
-                  color: #f0d9ff;
-                  font-size: 20px;
-                ">
-              Info
-            </button>
-          </div>
+            <div class="d-flex col-8 col-xs-7 col-sm-6 col-md-5 col-lg-4 col-xl-3 align-self-center justify-content-center">
+                <img class="img-fluid" src="./images/emoji.png" alt="emoji" style="margin-top: 40px;"/>
+            </div>
         </div>
-      </div>
-      <div class="col col-lg-4 col-12">
-        <img class="img-fluid float-end" src="./images/emoji.png" alt="emoji" />
-      </div>
     </div>
+    </div>
+    <!-- Home screen container end -->
 
-    <!-- Modal -->
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-      aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="staticBackdropLabel">Information</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">Opisanie</div>
+    <!-- Game screen container start-->
+    <div id="gamesn" class="container-fluid d-none">
+        <div class="row d-flex flex-column flex-md-row align-items-center justify-content-center">
+            <div class="col-md-5 col-sm-5 align-self-center justify-content-center" style="margin-bottom: 30px;">
+                <h1 style="color:#827397; font-size: 8vw; ">MathMATE</h1>
+                <h2 id="task" style="border: 3px solid #4D4C7D; border-radius: 5px; padding-left: 5px; color: #4D4C7D; font-size: 20px;">Text here!</h2>
+            </div>
+            <div class="col-md-5 col-sm-5" style="text-align: center;">
+                
+                <div style="padding-bottom: 2px;">
+                    <button onclick="numeros(1)" class="btn btn-primary btn-lg btn3d">1</button>
+                    <button onclick="numeros(2)" class="btn btn-primary btn-lg btn3d">2</button>
+                    <button onclick="numeros(3)" class="btn btn-primary btn-lg btn3d">3</button>
+                    <button onclick="plus()" class="btn btn-primary btn-lg btn3d"
+                        style="margin-left: 20px; padding: 6px 13px;">+</button>
+                </div>
+                <div style="padding-bottom: 2px;">
+                    <button onclick="numeros(4)" class="btn btn-primary btn-lg btn3d">4</button>
+                    <button onclick="numeros(5)" class="btn btn-primary btn-lg btn3d">5</button>
+                    <button onclick="numeros(6)" class="btn btn-primary btn-lg btn3d">6</button>
+                    <button onclick="minus()" class="btn btn-primary btn-lg btn3d" style="margin-left: 20px; padding: 8px 15px;">-</button>
+                </div>
+                <div style="padding-bottom: 2px;">
+                    <button onclick="numeros(7)" class="btn btn-primary btn-lg btn3d">7</button>
+                    <button onclick="numeros(8)" class="btn btn-primary btn-lg btn3d">8</button>
+                    <button onclick="numeros(9)" class="btn btn-primary btn-lg btn3d">9</button>
+                    <button onclick="division()" class="btn btn-primary btn-lg btn3d" style="margin-left: 20px; padding: 8px 15px;">/</button>
+                </div>
+                <div style="padding-bottom: 2x;">
+                    <button onclick = "clearInput()" class="btn btn-danger btn-lg btn3d" style="padding: 8px 25px;">clear</button>
+                    <button onclick = "numeros(0)" class="btn btn-primary btn-lg btn3d">0</button>
+                    <button onclick = "multiplication()"class="btn btn-primary btn-lg btn3d" style="margin-left: 16px; padding: 8px 15px;">*</button>
+                </div>
+                <div>
+                    <button onclick="checkAnswer()" class="btn btn-success btn-lg btn3d" style="padding: 8px 80px;" id="enter">Enter</button>
+                </div>
+            </div>  
         </div>
-      </div>
-      <!-- End Modal -->
     </div>
-  </div>
-  <!-- Home screen container end -->
+    <!-- Game screen container end-->
 
-  <!-- Game screen container start-->
-  <div id="gamesn" class="container-fluid d-none">
-    <div class="row d-flex flex-column flex-md-row align-items-center justify-content-center">
-      <div class="col-md-5 col-sm-5 align-self-center justify-content-center" style="margin-bottom: 30px">
-        <h1 style="color: #827397; font-size: 8vw">MathMATE</h1>
-        <h2 id="task"
-          style="border: 3px solid #4d4c7d; border-radius: 5px; padding-left: 5px; color: #4d4c7d; font-size: 20px">
-          Text here!
-        </h2>
-      </div>
-      <div class="col-md-5 col-sm-5" style="text-align: center">
-        <div style="padding-bottom: 2px">
-          <button onclick="numeros(1)" class="btn btn-primary btn-lg btn3d" id="one">1</button>
-          <button onclick="numeros(2)" class="btn btn-primary btn-lg btn3d" id="two">2</button>
-          <button onclick="numeros(3)" class="btn btn-primary btn-lg btn3d" id="three">3</button>
-          <button onclick="plus()" class="btn btn-primary btn-lg btn3d" style="margin-left: 20px; padding: 6px 13px">
-            +
-          </button>
-        </div>
-        <div style="padding-bottom: 2px">
-          <button onclick="numeros(4)" class="btn btn-primary btn-lg btn3d" id="four">4</button>
-          <button onclick="numeros(5)" class="btn btn-primary btn-lg btn3d" id="five">5</button>
-          <button onclick="numeros(6)" class="btn btn-primary btn-lg btn3d" id="six">6</button>
-          <button onclick="minus()" class="btn btn-primary btn-lg btn3d" style="margin-left: 20px; padding: 8px 15px">
-            -
-          </button>
-        </div>
-        <div style="padding-bottom: 2px">
-          <button onclick="numeros(7)" class="btn btn-primary btn-lg btn3d" id="seven">7</button>
-          <button onclick="numeros(8)" class="btn btn-primary btn-lg btn3d" id="eight">8</button>
-          <button onclick="numeros(9)" class="btn btn-primary btn-lg btn3d" id="nine">9</button>
-          <button onclick="" class="btn btn-primary btn-lg btn3d" style="margin-left: 20px; padding: 8px 15px">
-            /
-          </button>
-        </div>
-        <div style="padding-bottom: 2x">
-          <button onclick="clearInput()" class="btn btn-danger btn-lg btn3d" style="padding: 8px 25px" id="clear">
-            Clear
-          </button>
-          <button onclick="numeros(0)" class="btn btn-primary btn-lg btn3d" id="zero">0</button>
-          <button class="btn btn-primary btn-lg btn3d" style="margin-left: 16px; padding: 8px 15px">*</button>
-        </div>
-        <div>
-          <button onclick="checkAnswer()" class="btn btn-success btn-lg btn3d" style="padding: 8px 80px"
-            id="enter">Enter</button>
+    <!-- End screen container start-->
+    <div id="endsn" class="d-none">
+        <div class="row min-vh-100 flex-column align-items-center justify-content-center">
+            <div class="d-flex flex-column align-items-center">
+                <h4 style="border: solid 3px #827397; border-radius: 15px; padding: 5px; padding-left: 15px; padding-right: 15px; text-align: center;">Result: 2/5</h4>
+                <div class="flex-row">
+                    <button class="btn mx-1 btn-light btn-lg" style="background-color: #827397; border: 2px solid #4D4C7D; width: 20vw; margin-top: 5px; color: #F0D9FF;" onclick="homeMenu()">Play again</button>
+                    <button class="btn mx-1 btn-light btn-lg" style="background-color: #827397; border: 2px solid #4D4C7D; width: 20vw; margin-top: 5px;color: #F0D9FF">Next level</button>
+                </div>
+            </div>
+            <div class="d-flex col-8 col-xs-7 col-sm-6 col-md-5 col-lg-4 col-xl-3 align-self-center justify-content-center">
+                <img class="img-fluid" src="./images/emoji.png" alt="emoji" style="margin-top: 40px;"/>
+            </div>
         </div>
       </div>
-    </div>
-  </div>
-  <!-- Game screen container end-->
-
-  <!-- End screen container start-->
-  <div id="endsn" class="d-none">
-    <div class="row min-vh-100 flex-column align-items-center justify-content-center">
-      <div class="d-flex flex-column align-items-center">
-        <h4 style="
-              border: solid 3px #827397;
-              border-radius: 15px;
-              padding: 5px;
-              padding-left: 15px;
-              padding-right: 15px;
-              text-align: center;
-            ">
-          Result: 2/5
-        </h4>
-        <div class="flex-row">
-          <button class="btn mx-1 btn-light btn-lg"
-            style="background-color: #827397; border: 2px solid #4d4c7d; width: 20vw; margin-top: 5px; color: #f0d9ff"
-            onclick="homeMenu()">
-            Play again
-          </button>
-          <button class="btn mx-1 btn-light btn-lg"
-            style="background-color: #827397; border: 2px solid #4d4c7d; width: 20vw; margin-top: 5px; color: #f0d9ff">
-            Next level
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- End screen container end -->
+    <!-- End screen container end -->
 </body>
 
 </html>
