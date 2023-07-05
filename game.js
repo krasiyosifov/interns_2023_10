@@ -1,8 +1,10 @@
 let difficulties = ["easy", "normal", "hard"];
 let difficulty = difficulties[0];
 let type;
-let points = 0;
+let points =0;
 let error;
+let myAnswer = "";
+let answer = 0;
 let numFirst = 0;
 let numSecond = 0;
 
@@ -42,6 +44,7 @@ function minus(){
 }
 function numeros(num){
     let add = document.getElementById("task").append(num);
+    myAnswer = myAnswer + "" + num;
 }
 
 function muliplication(){
@@ -54,14 +57,28 @@ function clearInput(){
     let task = document.getElementById("task").innerHTML.substring(0, 8);
     document.getElementById("task").innerHTML = task;
     console.log(task);
+    myAnswer = "";
 }
 function checkAnswer(){
-    points++;
-    if(points>=5){
-        document.getElementById("gamesn").classList.add("d-none");
-        document.getElementById("endsn").classList.remove("d-none");
-        points=0;
+    if (type == "+") {
+       answer = numFirst + numSecond;
+    } else if (type == "-") {
+        answer = numFirst - numSecond;
+    } else if (type == "*") {
+        answer = numFirst * numSecond;
+    } else if (type == "/") {
+        answer = numFirst / numSecond;
     }
+    if(answer == myAnswer){
+        points++;
+        if(points>=5) {
+            document.getElementById("gamesn").classList.add("d-none");
+            document.getElementById("endsn").classList.remove("d-none");
+            points=0;
+        }
+    } 
+    myAnswer = "";
+
     switch(type){
         case "+": plus();
         break;
