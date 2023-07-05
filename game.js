@@ -42,7 +42,7 @@ function numeros(num){
 }
 
 function clearInput(){
-    let task = document.getElementById("task").innerHTML.substring(0, 7);
+    let task = document.getElementById("task").innerHTML.substring(0, 8);
     document.getElementById("task").innerHTML = task;
     console.log(task);
 }
