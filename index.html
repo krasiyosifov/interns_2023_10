@@ -80,8 +80,8 @@
             <div class="d-flex flex-column align-items-center justify-content-center">
                 <h1 class="text-center" style="color:#827397; font-size: 12vw; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; ">MathMate</h1>
                 <div class="d-flex flex-row align-items-center justify-content-center">
-                    <button class="btn mx-1 btn-light btn-lg" style="background-color: #827397; border: 2px solid #4D4C7D; width: 25vw; margin-top: 5px; color: #F0D9FF; font-size: 20px;" onclick="gameStart()">Play</button>
-                    <button class="btn mx-1 btn-light btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="background-color: #827397; border: 2px solid #4D4C7D; width: 25vw; margin-top: 5px; color: #F0D9FF; font-size: 20px;">Info</button>    
+                    <button class="btn mx-1 btn-light btn-lg" style="background-color: #827397; border: 2px solid #4D4C7D; width: 25vw; margin-top: 5px; color: #F0D9FF; font-size: 20px;" onclick="gameStart(), sound(1)">Play</button>
+                    <button onclick="sound(2)" class="btn mx-1 btn-light btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="background-color: #827397; border: 2px solid #4D4C7D; width: 25vw; margin-top: 5px; color: #F0D9FF; font-size: 20px;">Info</button>    
 
                     <!-- Modal -->
                     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -89,7 +89,7 @@
                     <div class="modal-content">
                     <div class="modal-header" style="background-color: #c7acda;">
                         <h1 class="modal-title fs-5" id="staticBackdropLabel" ><b>Information</b></h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button onclick="sound(3)" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                                 <div class="modal-body" style="background-color: #F0D9FF;">
                                     <p>
@@ -144,30 +144,30 @@
                 <div class="col d-flex flex-column align-items-center">
                     <div>
                         <div class="col d-flex flex-row">
-                            <button onclick="numeros(1)" class="col mx-1 btn btn-primary btn-lg btn3d btnstl">1</button>
-                            <button onclick="numeros(2)" class="col mx-1 btn btn-primary btn-lg btn3d btnstl">2</button>
-                            <button onclick="numeros(3)" class="col mx-1 btn btn-primary btn-lg btn3d btnstl">3</button>
-                            <button onclick="plus()" class="col mx-1 btn btn-primary btn-lg btn3d btnstl">+</button>
+                            <button onclick="numeros(1), sound(1)" class="col mx-1 btn btn-primary btn-lg btn3d btnstl">1</button>
+                            <button onclick="numeros(2), sound(1)" class="col mx-1 btn btn-primary btn-lg btn3d btnstl">2</button>
+                            <button onclick="numeros(3), sound(1)" class="col mx-1 btn btn-primary btn-lg btn3d btnstl">3</button>
+                            <button onclick="plus(), sound(1)" class="col mx-1 btn btn-primary btn-lg btn3d btnstl">+</button>
                         </div>
                         <div class="col d-flex flex-row">
-                            <button onclick="numeros(4)" class="col mx-1 btn btn-primary btn-lg btn3d btnstl">4</button>
-                            <button onclick="numeros(5)" class="col mx-1 btn btn-primary btn-lg btn3d btnstl">5</button>
-                            <button onclick="numeros(6)" class="col mx-1 btn btn-primary btn-lg btn3d btnstl">6</button>
-                            <button onclick="minus()" class="col mx-1 btn btn-primary btn-lg btn3d btnstl">-</button>
+                            <button onclick="numeros(4), sound(1)" class="col mx-1 btn btn-primary btn-lg btn3d btnstl">4</button>
+                            <button onclick="numeros(5), sound(1)" class="col mx-1 btn btn-primary btn-lg btn3d btnstl">5</button>
+                            <button onclick="numeros(6), sound(1)" class="col mx-1 btn btn-primary btn-lg btn3d btnstl">6</button>
+                            <button onclick="minus(), sound(1)" class="col mx-1 btn btn-primary btn-lg btn3d btnstl">-</button>
                         </div>
                         <div class="col d-flex flex-row">
-                            <button onclick="numeros(7)" class="col mx-1 btn btn-primary btn-lg btn3d btnstl">7</button>
-                            <button onclick="numeros(8)" class="col mx-1 btn btn-primary btn-lg btn3d btnstl">8</button>
-                            <button onclick="numeros(9)" class="col mx-1 btn btn-primary btn-lg btn3d btnstl">9</button>
-                            <button onclick="division()" class="col mx-1 btn btn-primary btn-lg btn3d btnstl">/</button>
+                            <button onclick="numeros(7), sound(1)" class="col mx-1 btn btn-primary btn-lg btn3d btnstl">7</button>
+                            <button onclick="numeros(8), sound(1)" class="col mx-1 btn btn-primary btn-lg btn3d btnstl">8</button>
+                            <button onclick="numeros(9), sound(1)" class="col mx-1 btn btn-primary btn-lg btn3d btnstl">9</button>
+                            <button onclick="division(), sound(1)" class="col mx-1 btn btn-primary btn-lg btn3d btnstl">/</button>
                         </div>
                         <div class="col d-flex flex-row">
-                            <button onclick = "clearInput()" class="col-5 mx-1 btn btn-danger btn-lg btn3d btnstl">clear</button>
-                            <button onclick = "numeros(0)" class="col mx-1 btn btn-primary btn-lg btn3d btnstl">0</button>
-                            <button onclick = "multiplication()"class="col mx-1 btn btn-primary btn-lg btn3d btnstl">*</button>
+                            <button onclick = "clearInput(), sound(1)" class="col-5 mx-1 btn btn-danger btn-lg btn3d btnstl">clear</button>
+                            <button onclick = "numeros(0), sound(1)" class="col mx-1 btn btn-primary btn-lg btn3d btnstl">0</button>
+                            <button onclick = "multiplication(1), sound(1)"class="col mx-1 btn btn-primary btn-lg btn3d btnstl">*</button>
                         </div>
                         <div class="col d-flex flex-row">
-                            <button onclick="checkAnswer()" class="col mx-1 btn px-5 btn-success btn-lg btn3d btnstl" id="enter">Enter</button>
+                            <button onclick="checkAnswer(), sound(1)" class="col mx-1 btn px-5 btn-success btn-lg btn3d btnstl" id="enter">Enter</button>
                         </div>
                     </div>
                 </div>
@@ -183,7 +183,7 @@
             <div class="d-flex flex-column align-items-center">
                 <h4 id="result" style="border: solid 3px #827397; border-radius: 15px; padding: 5px; padding-left: 15px; padding-right: 15px; text-align: center;">Result: 2/5</h4>
                 <div class="flex-row">
-                    <button class="btn mx-1 btn-light btn-lg" style="background-color: #827397; border: 2px solid #4D4C7D; margin-top: 5px; color: #F0D9FF;" onclick="homeMenu()">Play again</button>
+                    <button class="btn mx-1 btn-light btn-lg" style="background-color: #827397; border: 2px solid #4D4C7D; margin-top: 5px; color: #F0D9FF;" onclick="homeMenu(), sound(1)">Play again</button>
                     <button class="btn mx-1 btn-light btn-lg" style="background-color: #827397; border: 2px solid #4D4C7D; margin-top: 5px;color: #F0D9FF">Next level</button>
                 </div>
             </div>
