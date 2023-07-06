@@ -58,10 +58,11 @@ function multiplication(){
 }
 
 function division(){
-    do{
-       getNumbers(true); 
+        getNumbers(true); 
+    while(numFirst<=numSecond || numFirst%numSecond != 0 || numSecond==0 || numSecond==1){
+        getNumbers(true); 
     }
-    while(numFirst<numSecond && numFirst%numSecond != 0);
+
     document.getElementById("task").innerHTML = numFirst + " / " + numSecond + " = ";
     type = "/";
 
@@ -136,7 +137,7 @@ function sound(num) {
             sound = new Audio('sounds/popupreverse.mp3')
         }
         sound.play()
-        sound.volume = 0.1
+        sound.volume = 0.1;
     }
     }
 
