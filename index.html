@@ -135,7 +135,7 @@
         <div class="row min-vh-100 flex-column align-items-center justify-content-center">
             <div class="row flex-column flex-sm-row align-items-center">
                 <div class="">
-                        <button class="col mx-1 btn btn-lg btnstl">Back</button>
+                        <button onclick="back()" class="col mx-1 btn btn-lg btnstl">Back</button>
                 </div>
                 <div class="col d-flex flex-column align-items-center">
                     <div>
@@ -170,8 +170,8 @@
                             <button onclick="checkAnswer(), sound(1)" class="col mx-1 btn px-5 btn-success btn-lg btn3d btnstl">Enter</button>
                         </div>
                         <div class="col d-flex flex-row">
-                            <button onclick="checkAnswer(), sound(1)" class="col mx-1 btn btn-primary btn-lg btn3d btnstl">Backspace</button>
-                            <button onclick="checkAnswer(), sound(1)" class="col mx-1 btn btn-primary btn-lg btn3d btnstl">Level</button>                        </div>
+                            <button onclick="sound(1)" class="col mx-1 btn btn-primary btn-lg btn3d btnstl">Backspace</button>
+                            <button id="levelButton" onclick="sound(1), levelSwitch()" class="col mx-1 btn btn-primary btn-lg btn3d btnstl">Level</button>                        </div>
                     </div>
                 </div>
                 <div class="col d-flex flex-column align-items-center">

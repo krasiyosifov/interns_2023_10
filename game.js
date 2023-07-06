@@ -1,4 +1,4 @@
-let difficulties = ["easy", "normal", "hard"];
+let difficulties = ["Easy", "Normal", "Hard"];
 let level = 0;
 let difficulty = difficulties[0];
 let type;
@@ -11,6 +11,7 @@ let numSecond = 0;
 let soundOn = true;
 
 function randomNumbers(num, ssm){
+    document.getElementById("levelButton").innerHTML = difficulties[level];
     if(ssm){
         numFirst = Math.floor(Math.random()*num+1);
         do{
@@ -24,11 +25,11 @@ function randomNumbers(num, ssm){
 }
 function getNumbers(ssm){
     switch(difficulty){
-        case "easy": randomNumbers(10, ssm);
+        case "Easy": randomNumbers(10, ssm);
         break;
-        case "normal": randomNumbers(100, ssm);
+        case "Normal": randomNumbers(100, ssm);
         break;
-        case "hard": randomNumbers(1000, ssm);
+        case "Hard": randomNumbers(1000, ssm);
         break;
     }
     console.log("first: "+ numFirst);
@@ -80,11 +81,12 @@ function clearInput(){
 }
 
 function levelSwitch() {
-    if (level <= 3) {
+    if (level != 2) {
         level++;
-        console.log("level: " + level);
-    };
+    } else level = 0;
     difficulty = difficulties[level];
+    console.log(difficulties[level]);
+    randomTask();
 }
 
 function checkAnswer(){
