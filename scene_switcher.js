@@ -15,6 +15,14 @@ function gameStart(){
     end.classList.add("d-none");
     randomTask();
 }
+// function endScreen () {
+//     let home = document.getElementById("homesn");
+//     let game = document.getElementById("gamesn");
+//     let end = document.getElementById("endsn");
+//     game.classList.add("d-none");
+//     home.classList.remove("d-none");  
+//     end.classList.add("d-none");
+// }
 function playAgain() {
     points = 0;
     rounds = 0;
