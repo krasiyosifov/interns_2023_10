@@ -58,7 +58,7 @@ function multiplication(){
 
 function division(){
         getNumbers(true); 
-    while(numFirst<numSecond || numFirst%numSecond != 0 || numSecond==0){
+    while(numFirst<=numSecond || numFirst%numSecond != 0 || numSecond==0 || numSecond==1){
         getNumbers(true); 
     }
 
