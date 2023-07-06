@@ -1,5 +1,5 @@
 let difficulties = ["easy", "normal", "hard"];
-let difficulty = difficulties[0];
+let difficulty = difficulties[2];
 let type;
 let points = 0;
 let rounds = 0;
@@ -57,10 +57,11 @@ function multiplication(){
 }
 
 function division(){
-    do{
-       getNumbers(true); 
+        getNumbers(true); 
+    while(numFirst<numSecond || numFirst%numSecond != 0 || numSecond==0){
+        getNumbers(true); 
     }
-    while(numFirst<numSecond && numFirst%numSecond != 0);
+
     document.getElementById("task").innerHTML = numFirst + " / " + numSecond + " = ";
     type = "/";
 
