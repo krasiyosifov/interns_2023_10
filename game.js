@@ -132,14 +132,14 @@ function sound(num) {
     var sound;
     if (soundOn) {
         if (num == 1) {
-            sound = new Audio('sounds/click_sound.mp3')
+            sound = new Audio('sounds/click_new.mp3')
         } else if (num == 2) {
             sound = new Audio('sounds/popup.mp3')
         } else if (num == 3) {
             sound = new Audio('sounds/popupreverse.mp3')
         }
         sound.play()
-        sound.volume = 0.1;
+        sound.volume = 0.3;
     }
     }
 
