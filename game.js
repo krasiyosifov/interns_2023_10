@@ -1,4 +1,4 @@
-let difficulties = ["easy", "normal", "hard"];
+let difficulties = ["Easy", "Normal", "Hard"];
 let level = 0;
 let difficulty = difficulties[0];
 let type;
@@ -11,6 +11,7 @@ let numSecond = 0;
 let soundOn = true;
 
 function randomNumbers(num, ssm){
+    document.getElementById("levelButton").innerHTML = difficulties[level];
     if(ssm){
         numFirst = Math.floor(Math.random()*num+1);
         do{
@@ -24,11 +25,11 @@ function randomNumbers(num, ssm){
 }
 function getNumbers(ssm){
     switch(difficulty){
-        case "easy": randomNumbers(10, ssm);
+        case "Easy": randomNumbers(10, ssm);
         break;
-        case "normal": randomNumbers(100, ssm);
+        case "Normal": randomNumbers(100, ssm);
         break;
-        case "hard": randomNumbers(1000, ssm);
+        case "Hard": randomNumbers(1000, ssm);
         break;
     }
     console.log("first: "+ numFirst);
@@ -71,25 +72,31 @@ function division(){
 }
 
 function numeros(num){
-    document.getElementById("task").append(num);
+    let numbers = document.getElementById("userInput");
+    numbers.value = numbers.value + num;
 }
 
 function clearInput(){
-    let task = document.getElementById("task").innerHTML.substring(0, 8);
-    document.getElementById("task").innerHTML = task;
+    document.getElementById("userInput").value = "";
+}
+
+function backspace(){
+    let value = document.getElementById("userInput");
+    value.value = value.value.slice(0, -1);    
 }
 
 function levelSwitch() {
-    if (level <= 3) {
+    if (level != 2) {
         level++;
-        console.log("level: " + level);
-    };
+    } else level = 0;
     difficulty = difficulties[level];
+    console.log(difficulties[level]);
+    randomTask();
 }
 
 function checkAnswer(){
     rounds++;
-    let userAnswer = document.getElementById("task").innerHTML.substring(8, 13);
+    let userAnswer = document.getElementById("userInput").value;
     if(userAnswer != "" && answer == Number(userAnswer)){
         points++;
         console.log("Earned Point!");
@@ -113,6 +120,7 @@ function checkAnswer(){
         case "/": division();
         break;
     }
+    clearInput();
 }
 function randomTask(){
     switch(Math.round(Math.random()*4+1)){
