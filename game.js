@@ -142,9 +142,9 @@ function sound(num) {
         if (num == 1) {
             sound = new Audio('sounds/click_new.mp3')
         } else if (num == 2) {
-            sound = new Audio('sounds/popup.mp3')
+            sound = new Audio('sounds/fade_in_new.mp3')
         } else if (num == 3) {
-            sound = new Audio('sounds/popupreverse.mp3')
+            sound = new Audio('sounds/fade_out_new.mp3')
         }
         sound.play()
         sound.volume = 0.3;
