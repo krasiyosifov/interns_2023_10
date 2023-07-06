@@ -7,7 +7,7 @@ let myAnswer;
 let answer = 0;
 let numFirst = 0;
 let numSecond = 0;
-let soundOn = false;
+let soundOn = true;
 
 function randomNumbers(num, ssm){
     if(ssm){
