@@ -72,12 +72,17 @@ function division(){
 }
 
 function numeros(num){
-    document.getElementById("task").append(num);
+    let numbers = document.getElementById("userInput");
+    numbers.value = numbers.value + num;
 }
 
 function clearInput(){
-    let task = document.getElementById("task").innerHTML.substring(0, 8);
-    document.getElementById("task").innerHTML = task;
+    document.getElementById("userInput").value = "";
+}
+
+function backspace(){
+    let value = document.getElementById("userInput");
+    value.value = value.value.slice(0, -1);    
 }
 
 function levelSwitch() {
@@ -91,7 +96,7 @@ function levelSwitch() {
 
 function checkAnswer(){
     rounds++;
-    let userAnswer = document.getElementById("task").innerHTML.substring(8, 13);
+    let userAnswer = document.getElementById("userInput").value;
     if(userAnswer != "" && answer == Number(userAnswer)){
         points++;
         console.log("Earned Point!");
@@ -115,6 +120,7 @@ function checkAnswer(){
         case "/": division();
         break;
     }
+    clearInput();
 }
 function randomTask(){
     switch(Math.round(Math.random()*4+1)){
