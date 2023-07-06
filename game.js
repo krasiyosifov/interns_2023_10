@@ -1,5 +1,5 @@
 let difficulties = ["easy", "normal", "hard"];
-let difficulty = difficulties[0];
+let difficulty = difficulties[2];
 let type;
 let points = 0;
 let rounds = 0;
@@ -7,7 +7,7 @@ let myAnswer;
 let answer = 0;
 let numFirst = 0;
 let numSecond = 0;
-let soundOn = false;
+let soundOn = true;
 
 function randomNumbers(num, ssm){
     if(ssm){
@@ -57,10 +57,11 @@ function multiplication(){
 }
 
 function division(){
-    do{
-       getNumbers(true); 
+        getNumbers(true); 
+    while(numFirst<=numSecond || numFirst%numSecond != 0 || numSecond==0 || numSecond==1){
+        getNumbers(true); 
     }
-    while(numFirst<numSecond && numFirst%numSecond != 0);
+
     document.getElementById("task").innerHTML = numFirst + " / " + numSecond + " = ";
     type = "/";
 
@@ -126,7 +127,7 @@ function sound(num) {
             sound = new Audio('sounds/popupreverse.mp3')
         }
         sound.play()
-        sound.volume = 0.1
+        sound.volume = 0.1;
     }
     }
 
