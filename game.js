@@ -88,7 +88,9 @@ function backspace(){
 function levelSwitch() {
     if (level != 2) {
         level++;
-    } else level = 0;
+    } else {
+        level = 0;
+    }
     difficulty = difficulties[level];
     console.log(difficulties[level]);
     randomTask();
@@ -147,5 +149,14 @@ function sound(num) {
         sound.play()
         sound.volume = 0.3;
     }
+}
+
+document.addEventListener('keypress', (event) => {
+    var name = event.key;
+    if (name === "1") {
+        document.getElementById("one").click();
     }
+    console.log(name);
+}, false);
+    
 
