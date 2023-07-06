@@ -7,7 +7,7 @@ let myAnswer;
 let answer = 0;
 let numFirst = 0;
 let numSecond = 0;
-let soundOn = false;
+let soundOn = true;
 
 function randomNumbers(num, ssm){
     if(ssm){
@@ -126,7 +126,7 @@ function sound(num) {
             sound = new Audio('sounds/popupreverse.mp3')
         }
         sound.play()
-        sound.volume = 0.1
+        sound.volume = 0.1;
     }
     }
 
