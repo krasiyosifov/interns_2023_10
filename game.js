@@ -1,5 +1,5 @@
 let difficulties = ["easy", "normal", "hard"];
-let difficulty = difficulties[2];
+let difficulty = difficulties[0];
 let type;
 let points = 0;
 let rounds = 0;
