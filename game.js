@@ -1,4 +1,5 @@
 let difficulties = ["easy", "normal", "hard"];
+let level = 0;
 let difficulty = difficulties[0];
 let type;
 let points = 0;
@@ -76,6 +77,15 @@ function clearInput(){
     let task = document.getElementById("task").innerHTML.substring(0, 8);
     document.getElementById("task").innerHTML = task;
 }
+
+function levelSwitch() {
+    if (level <= 3) {
+        level++;
+        console.log("level: " + level);
+    };
+    difficulty = difficulties[level];
+}
+
 function checkAnswer(){
     rounds++;
     let userAnswer = document.getElementById("task").innerHTML.substring(8, 13);
