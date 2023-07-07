@@ -86,10 +86,12 @@ function backspace(){
 function levelSwitch() {
     if (level != 2) {
         level++
-        difficulty = difficulties[level];
-        document.getElementById("levelButton").innerHTML = difficulties[level];
-        randomTask();
+    } else {
+        level = 0;
     }
+    difficulty = difficulties[level];
+    document.getElementById("levelButton").innerHTML = difficulties[level];
+    randomTask();
 }
 
 function checkAnswer(){
@@ -125,7 +127,7 @@ function checkAnswer(){
     clearInput();
 }
 function randomTask(){
-    let rand = Math.round(Math.random()*4);
+    let rand = Math.round(Math.random()*3);
     console.log("level: " + difficulties[level]);
     console.log(rand);
     switch(rand){
