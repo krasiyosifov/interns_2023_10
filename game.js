@@ -104,8 +104,8 @@ function checkAnswer(){
     
     if(rounds == 5){
         if (level == 2) {
-            document.getElementById("nextLevel").classList.add("d-none");
-            document.getElementById("playAgain").classList.remove("d-none");
+            document.getElementById("nextLevelButton").classList.add("d-none");
+            document.getElementById("playAgainButton").classList.remove("d-none");
         }
         document.getElementById("gamesn").classList.add("d-none");
         document.getElementById("endsn").classList.remove("d-none");

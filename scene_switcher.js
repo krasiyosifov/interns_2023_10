@@ -20,8 +20,8 @@ function gameStart(){
     level = 0;
     difficulty = difficulties[level];
     document.getElementById("levelButton").innerHTML = difficulties[level];
-    document.getElementById("nextLevel").classList.remove("d-none");
-    document.getElementById("playAgain").classList.add("d-none");
+    document.getElementById("nextLevelButton").classList.remove("d-none");
+    document.getElementById("playAgainButton").classList.add("d-none");
     game.classList.remove("d-none");
     home.classList.add("d-none");  
     end.classList.add("d-none");
