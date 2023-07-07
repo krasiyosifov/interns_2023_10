@@ -32,8 +32,6 @@ function getNumbers(ssm){
         case "Hard": randomNumbers(1000, ssm);
         break;
     }
-    console.log("first: "+ numFirst);
-    console.log("second: "+ numSecond);
 }
 function plus(){
     getNumbers(false);
@@ -87,13 +85,11 @@ function backspace(){
 
 function levelSwitch() {
     if (level != 2) {
-        level++;
-    } else {
-        level = 0;
+        level++
+        difficulty = difficulties[level];
+        document.getElementById("levelButton").innerHTML = difficulties[level];
+        randomTask();
     }
-    difficulty = difficulties[level];
-    console.log(difficulties[level]);
-    randomTask();
 }
 
 function checkAnswer(){
@@ -105,6 +101,10 @@ function checkAnswer(){
     }
     
     if(rounds == 5){
+        if (level == 2) {
+            document.getElementById("nextLevel").classList.add("d-none");
+            document.getElementById("playAgain").classList.remove("d-none");
+        }
         document.getElementById("gamesn").classList.add("d-none");
         document.getElementById("endsn").classList.remove("d-none");
         document.getElementById("result").innerHTML = "Result " + points + "/5";
@@ -125,14 +125,17 @@ function checkAnswer(){
     clearInput();
 }
 function randomTask(){
-    switch(Math.round(Math.random()*4+1)){
-        case 1: plus();
+    let rand = Math.round(Math.random()*4);
+    console.log("level: " + difficulties[level]);
+    console.log(rand);
+    switch(rand){
+        case 0: plus();
         break;
-        case 2: minus();
+        case 1: minus();
         break;
-        case 3: multiplication();
+        case 2: multiplication();
         break;
-        case 4: division();
+        case 3: division();
         break;
     }
 }
