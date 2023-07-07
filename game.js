@@ -155,7 +155,15 @@ function sound(num) {
         sound.volume = 0.3;
     }
 }
-
+function soundTurn() {
+      if (soundOn) {
+        soundOn = false;
+        document.getElementById("soundButton").innerHTML = "Sound: OFF";
+      } else {
+        soundOn = true;
+        document.getElementById("soundButton").innerHTML = "Sound: ON";
+      }
+}
 document.addEventListener('keypress', (event) => {
     var name = event.key;
     if (name === "1") {
