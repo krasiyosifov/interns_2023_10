@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap');
 .btn3d {
     position: relative;
     top: -6px;
@@ -53,8 +54,8 @@
 
 
 .btnstl {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #1f0e34;
+    font-family: 'Nunito', sans-serif;
+        color: #1f0e34;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

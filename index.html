@@ -94,17 +94,15 @@
             <div class="d-flex justify-content-center">
                 <h1 class="title">MathMate</h1>
             </div>
-            <div class="row d-flex flex-column flex-sm-row align-items-center justify-content-center">
-                <div class="col d-flex flex-column align-items-center">
-                    <div class="p-2 shadow rounded align-self-center" style="background-color: #9876c9;">
-                        <div class="input-group mb-3">
-                            <div id="task" class="input-group-text">
-                                ㅤ
-                            </div>
-                            <input id="userInput" type="number" class="form-control" placeholder="Your answer"
+            <div class="d-flex flex-column flex-sm-row align-items-center justify-content-center">
+                <div class="col d-flex flex-column justify-content-center">
+                    <div class="p-2 shadow rounded align-self-center justify-content-center mw-50" style="background-color: #9876c9;">
+                        <div class="input-group mb-3 shadow-sm">
+                            <span id="task" class="input-group-text px-2 justify-content-center btnstl" style="width: 22vw;"></span>
+                            <input id="userInput" type="number" class="form-control btnstl" placeholder="Your answer"
                                 aria-label="Answer" aria-describedby="button-addon2">
                         </div>
-                        <div class="col d-flex flex-row">
+                        <div class="d-flex">
                             <button onclick="numeros(1), sound(1)" class="col mx-1 btn btn-primary btn-lg btn3d btnstl"
                                 id="one">1</button>
                             <button onclick="numeros(2), sound(1)" class="col mx-1 btn btn-primary btn-lg btn3d btnstl"
@@ -114,7 +112,7 @@
                             <button onclick="plus(), sound(1)" class="col mx-1 btn btn-primary btn-lg btn3d btnstl"
                                 id="plus">+</button>
                         </div>
-                        <div class="col d-flex flex-row">
+                        <div class="d-flex">
                             <button onclick="numeros(4), sound(1)" class="col mx-1 btn btn-primary btn-lg btn3d btnstl"
                                 id="four">4</button>
                             <button onclick="numeros(5), sound(1)" class="col mx-1 btn btn-primary btn-lg btn3d btnstl"
@@ -124,7 +122,7 @@
                             <button onclick="minus(), sound(1)" class="col mx-1 btn btn-primary btn-lg btn3d btnstl"
                                 id="minus">-</button>
                         </div>
-                        <div class="col d-flex flex-row">
+                        <div class="d-flex">
                             <button onclick="numeros(7), sound(1)" class="col mx-1 btn btn-primary btn-lg btn3d btnstl"
                                 id="seven">7</button>
                             <button onclick="numeros(8), sound(1)" class="col mx-1 btn btn-primary btn-lg btn3d btnstl"
@@ -134,7 +132,7 @@
                             <button onclick="division(), sound(1)" class="col mx-1 btn btn-primary btn-lg btn3d btnstl"
                                 id="ten">/</button>
                         </div>
-                        <div class="col d-flex flex-row">
+                        <div class="d-flex">
                             <button onclick="clearInput(), sound(1)"
                                 class="col-5 mx-1 btn btn-danger btn-lg btn3d btnstl">Clear</button>
                             <button onclick="numeros(0), sound(1)"
@@ -142,11 +140,11 @@
                             <button onclick="multiplication(1), sound(1)"
                                 class="col mx-1 btn btn-primary btn-lg btn3d btnstl">*</button>
                         </div>
-                        <div class="col d-flex flex-row">
+                        <div class="d-flex">
                             <button onclick="checkAnswer(), sound(1)"
                                 class="col mx-1 btn btn-primary btn-lg btn3d btnstl">Enter</button>
                         </div>
-                        <div class="col d-flex flex-row">
+                        <div class="d-flex">
                             <button onclick="backspace(), sound(1)"
                                 class="col mx-1 btn btn-primary btn-lg btn3d btnstl">Backspace</button>
                             <button id="levelButton" onclick="sound(1), levelSwitch()"
