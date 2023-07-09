@@ -165,11 +165,14 @@ function soundTurn() {
       }
 }
 document.addEventListener('keypress', (event) => {
-    var name = event.key;
-    if (name === "1") {
-        document.getElementById("one").click();
-    }
-    console.log(name);
+    var button = event.key;
+    document.getElementById(button).classList.add("active");
+    numeros(button);
+    setTimeout(()=>{
+        document.getElementById(button).classList.remove("active");
+    }, 150);
+    console.log(button);
 }, false);
+
     
 
