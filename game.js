@@ -9,6 +9,7 @@ let answer = 0;
 let numFirst = 0;
 let numSecond = 0;
 let soundOn = true;
+let buttons = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "Backspace", "Enter", "+", "-", "*", "/"];
 
 function randomNumbers(num, ssm){
     document.getElementById("levelButton").innerHTML = difficulties[level];
@@ -164,15 +165,30 @@ function soundTurn() {
         document.getElementById("soundButton").innerHTML = "Sound: ON";
       }
 }
-document.addEventListener('keypress', (event) => {
+document.addEventListener('keydown', (event) => {
     var button = event.key;
-    document.getElementById(button).classList.add("active");
-    numeros(button);
-    setTimeout(()=>{
-        document.getElementById(button).classList.remove("active");
-    }, 150);
-    console.log(button);
+    for(let i = 0; i< buttons.length; i++){
+        if(buttons[i] == button){
+            document.getElementById(button).classList.add("active");
+            setTimeout(()=>{
+            document.getElementById(button).classList.remove("active");
+        }, 150);
+        if(!document.getElementById("gamesn").classList.contains("d-none"))
+            switch(button){
+                case "+": plus();
+                break;
+                case "-": minus();
+                break;
+                case "*": multiplication();
+                break;
+                case "/": division();
+                break;
+                case "Enter": checkAnswer();
+                break;
+                case "Backspace": backspace();
+                break;
+                default: numeros(button);
+            }   
+        } 
+    }
 }, false);
-
-    
-
