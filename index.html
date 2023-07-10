@@ -184,160 +184,61 @@
               class="p-2 shadow rounded align-self-center justify-content-center mw-50"
               style="background-color: #9876c9"
             >
-              <div class="input-group mb-3 shadow-sm">
-                <span
-                  id="task"
-                  class="input-group-text px-2 justify-content-center btnstl"
-                  style="width: 22vw"
-                ></span>
-                <input
-                  id="userInput"
-                  type="number"
-                  class="form-control btnstl"
-                  placeholder="Your answer"
-                  aria-label="Answer"
-                  aria-describedby="button-addon2"
-                />
-              </div>
-              <div class="d-flex">
-                <button
-                  onclick="numeros(1), sound(1)"
-                  class="col mx-1 btn btn-primary btn-lg btn3d btnstl"
-                  id="1"
-                >
-                  1
-                </button>
-                <button
-                  onclick="numeros(2), sound(1)"
-                  class="col mx-1 btn btn-primary btn-lg btn3d btnstl"
-                  id="2"
-                >
-                  2
-                </button>
-                <button
-                  onclick="numeros(3), sound(1)"
-                  class="col mx-1 btn btn-primary btn-lg btn3d btnstl"
-                  id="3"
-                >
-                  3
-                </button>
-                <button
-                  onclick="plus(), sound(1)"
-                  class="col mx-1 btn btn-primary btn-lg btn3d btnstl"
-                  id="+"
-                >
-                  +
-                </button>
-              </div>
-              <div class="d-flex">
-                <button
-                  onclick="numeros(4), sound(1)"
-                  class="col mx-1 btn btn-primary btn-lg btn3d btnstl"
-                  id="4"
-                >
-                  4
-                </button>
-                <button
-                  onclick="numeros(5), sound(1)"
-                  class="col mx-1 btn btn-primary btn-lg btn3d btnstl"
-                  id="5"
-                >
-                  5
-                </button>
-                <button
-                  onclick="numeros(6), sound(1)"
-                  class="col mx-1 btn btn-primary btn-lg btn3d btnstl"
-                  id="6"
-                >
-                  6
-                </button>
-                <button
-                  onclick="minus(), sound(1)"
-                  class="col mx-1 btn btn-primary btn-lg btn3d btnstl"
-                  id="-"
-                >
-                  -
-                </button>
-              </div>
-              <div class="d-flex">
-                <button
-                  onclick="numeros(7), sound(1)"
-                  class="col mx-1 btn btn-primary btn-lg btn3d btnstl"
-                  id="7"
-                >
-                  7
-                </button>
-                <button
-                  onclick="numeros(8), sound(1)"
-                  class="col mx-1 btn btn-primary btn-lg btn3d btnstl"
-                  id="8"
-                >
-                  8
-                </button>
-                <button
-                  onclick="numeros(9), sound(1)"
-                  class="col mx-1 btn btn-primary btn-lg btn3d btnstl"
-                  id="9"
-                >
-                  9
-                </button>
-                <button
-                  onclick="division(), sound(1)"
-                  class="col mx-1 btn btn-primary btn-lg btn3d btnstl"
-                  id="/"
-                >
-                  ÷
-                </button>
-              </div>
-              <div class="d-flex">
-                <button
-                  onclick="clearInput(), sound(1)"
-                  class="col-5 mx-1 btn btn-success btn-lg btn3d btnstl"
-                  id="f"
-                >
-                  Clear
-                </button>
-                <button
-                  onclick="numeros(0), sound(1)"
-                  class="col mx-1 btn btn-primary btn-lg btn3d btnstl"
-                  id="0"
-                >
-                  0
-                </button>
-                <button
-                  onclick="multiplication(1), sound(1)"
-                  class="col mx-1 btn btn-primary btn-lg btn3d btnstl"
-                  id="*"
-                >
-                  ×
-                </button>
-              </div>
-              <div class="d-flex">
-                <button
-                  onclick="checkAnswer(), sound(1)"
-                  class="col mx-1 btn btn-danger btn-lg btn3d btnstl"
-                  id="Enter"
-                >
-                  Enter
-                </button>
-              </div>
-              <div class="d-flex">
-                <button
-                  onclick="backspace(), sound(1)"
-                  class="col mx-1 btn btn-success btn-lg btn3d btnstl"
-                  id="Backspace"
-                >
-                  Backspace
-                </button>
-                <button
-                  id="levelButton"
-                  onclick="sound(1), levelSwitch()"
-                  class="col mx-1 btn btn-success btn-lg btn3d btnstl"
-                >
-                  Level
-                </button>
-              </div>
-            </div>
+                        <div class="input-group mb-3 shadow-sm">
+                            <span id="task" class="input-group-text px-2 justify-content-center btnstl"
+                                style="width: 22vw;"></span>
+                            <input id="userInput" type="number" class="form-control btnstl" placeholder="Your answer"
+                                aria-label="Answer" aria-describedby="button-addon2">
+                        </div>
+                        <div class="d-flex">
+                            <button onclick="numeros(1), sound(1)" class="col mx-1 btn btn-primary btn-lg btn3d btnstl"
+                                id="1">1</button>
+                            <button onclick="numeros(2), sound(1)" class="col mx-1 btn btn-primary btn-lg btn3d btnstl"
+                                id="2">2</button>
+                            <button onclick="numeros(3), sound(1)" class="col mx-1 btn btn-primary btn-lg btn3d btnstl"
+                                id="3">3</button>
+                            <button onclick="plus(), sound(1)" class="col mx-1 btn btn-primary btn-lg btn3d btnstl"
+                                id="+">+</button>
+                        </div>
+                        <div class="d-flex">
+                            <button onclick="numeros(4), sound(1)" class="col mx-1 btn btn-primary btn-lg btn3d btnstl"
+                                id="4">4</button>
+                            <button onclick="numeros(5), sound(1)" class="col mx-1 btn btn-primary btn-lg btn3d btnstl"
+                                id="5">5</button>
+                            <button onclick="numeros(6), sound(1)" class="col mx-1 btn btn-primary btn-lg btn3d btnstl"
+                                id="6">6</button>
+                            <button onclick="minus(), sound(1)" class="col mx-1 btn btn-primary btn-lg btn3d btnstl"
+                                id="-">-</button>
+                        </div>
+                        <div class="d-flex">
+                            <button onclick="numeros(7), sound(1)" class="col mx-1 btn btn-primary btn-lg btn3d btnstl"
+                                id="7">7</button>
+                            <button onclick="numeros(8), sound(1)" class="col mx-1 btn btn-primary btn-lg btn3d btnstl"
+                                id="8">8</button>
+                            <button onclick="numeros(9), sound(1)" class="col mx-1 btn btn-primary btn-lg btn3d btnstl"
+                                id="9">9</button>
+                            <button onclick="division(), sound(1)" class="col mx-1 btn btn-primary btn-lg btn3d btnstl"
+                                id="/">÷</button>
+                        </div>
+                        <div class="d-flex">
+                            <button onclick="clearInput(), sound(1)"
+                                class="col-5 mx-1 btn btn-success btn-lg btn3d btnstl" id="c">Clear</button>
+                            <button onclick="numeros(0), sound(1)" class="col mx-1 btn btn-primary btn-lg btn3d btnstl"
+                                id="0">0</button>
+                            <button onclick="multiplication(1), sound(1)"
+                                class="col mx-1 btn btn-primary btn-lg btn3d btnstl" id="*">×</button>
+                        </div>
+                        <div class="d-flex">
+                            <button onclick="checkAnswer(), sound(1)"
+                                class="col mx-1 btn btn-danger btn-lg btn3d btnstl" id="Enter">Enter</button>
+                        </div>
+                        <div class="d-flex">
+                            <button onclick="backspace(), sound(1)" class="col mx-1 btn btn-success btn-lg btn3d btnstl"
+                                id="Backspace">Backspace</button>
+                            <button id="f" onclick="sound(1), levelSwitch()"
+                                class="col mx-1 btn btn-success btn-lg btn3d btnstl">Level</button>
+                        </div>
+                    </div>
           </div>
           <div class="col d-flex flex-column align-items-center">
             <div>

@@ -9,40 +9,50 @@ let answer = 0;
 let numFirst = 0;
 let numSecond = 0;
 let soundOn = true;
-let buttons = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "Backspace", "Enter", "+", "-", "*", "/"];
+let buttons = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "Backspace", "Enter", "+", "-", "*", "/", "f", "c"];
 
-function randomNumbers(num, ssm){
-    document.getElementById("levelButton").innerHTML = difficulties[level];
-    if(ssm){
-        numFirst = Math.floor(Math.random()*num+1);
-        do{
-            numSecond = Math.floor(Math.random()*num);
-        }
-        while(numFirst<numSecond)
-    }else{
-        numFirst = Math.floor(Math.random()*num);
-        numSecond = Math.floor(Math.random()*num);
+
+function randomNumbers(minFirst, maxFirst, minSecond, maxSecond){
+    numFirst = Math.round(Math.random() * maxFirst + minFirst);
+    numSecond = Math.round(Math.random() * maxSecond + minSecond);
+    if(numFirst==0 && numSecond==0){
+        randomNumbers(minFirst, maxFirst, minSecond, maxSecond);
     }
-}
-function getNumbers(ssm){
-    switch(difficulty){
-        case "Easy": randomNumbers(10, ssm);
-        break;
-        case "Normal": randomNumbers(100, ssm);
-        break;
-        case "Hard": randomNumbers(1000, ssm);
-        break;
+    if(numFirst==0 && (Math.round(Math.random()*100)<=50)){
+        numFirst = numFirst = Math.round(Math.random() * maxFirst + 1);
+    }
+    if(numSecond==0 && (Math.round(Math.random()*100)<=50)){
+        numSecond = numSecond = Math.round(Math.random() * maxFirst + 1);
     }
 }
 function plus(){
-    getNumbers(false);
+    switch(difficulty){
+        case "Easy": randomNumbers(0, 10, 0, 10);
+        break;
+        case "Normal": randomNumbers(10, 90, 10, 90);
+        break;
+        case "Hard": randomNumbers(200, 799, 10, 90);
+        break;
+    }
     document.getElementById("task").innerHTML = numFirst + " + " + numSecond + " = ";
     type = "+";
     answer = numFirst + numSecond;
     console.log(answer);
 }
 function minus(){
-    getNumbers(true);
+    switch(difficulty){
+        case "Easy": randomNumbers(5, 15, 0, 10);
+        break;
+        case "Normal": randomNumbers(10, 90, 5, 95);
+        break;
+        case "Hard": randomNumbers(300, 699, 10, 90);
+        break;
+    }
+    if(numFirst<numSecond){
+        let temp = numFirst;
+        numFirst = numSecond;
+        numSecond = temp;
+    }
     document.getElementById("task").innerHTML = numFirst + " - " + numSecond + " = ";
     type = "-";
     answer = numFirst - numSecond;
@@ -50,7 +60,14 @@ function minus(){
 }
 
 function multiplication(){
-    getNumbers(false);
+    switch(difficulty){
+        case "Easy": randomNumbers(0, 10, 0, 10);
+        break;
+        case "Normal": randomNumbers(10, 90, 0, 9);
+        break;
+        case "Hard": randomNumbers(200, 799, 10, 90);
+        break;
+    }
     document.getElementById("task").innerHTML = numFirst + " * " + numSecond + " = ";
     type = "*";
     answer = numFirst * numSecond;
@@ -58,15 +75,21 @@ function multiplication(){
 }
 
 function division(){
-        getNumbers(true); 
-    while(numFirst<=numSecond || numFirst%numSecond != 0 || numSecond==0 || numSecond==1){
-        getNumbers(true); 
+    switch(difficulty){
+        case "Easy": randomNumbers(1, 9, 0, 10);
+        break;
+        case "Normal": randomNumbers(2, 8, 0, 20);
+        break;
+        case "Hard": randomNumbers(10, 89, 1, 9);
+        break;
     }
-
-    document.getElementById("task").innerHTML = numFirst + " / " + numSecond + " = ";
+    let finalFirstNum = numFirst * numSecond;
+    if(finalFirstNum < 100  && difficulty == "Hard"){
+        return division();
+    }
+    answer = finalFirstNum / numFirst;
+    document.getElementById("task").innerHTML = finalFirstNum + " ÷ " + numFirst + " = ";
     type = "/";
-
-    answer = numFirst / numSecond;
     console.log(answer);
 }
 
@@ -91,8 +114,17 @@ function levelSwitch() {
         level = 0;
     }
     difficulty = difficulties[level];
-    document.getElementById("levelButton").innerHTML = difficulties[level];
-    randomTask();
+    document.getElementById("f").innerHTML = difficulties[level];
+    switch(type){
+        case "+": plus();
+        break;
+        case "-": minus();
+        break;
+        case "*": multiplication();
+        break;
+        case "/": division();
+        break;
+    }
 }
 
 function checkAnswer(){
@@ -130,7 +162,6 @@ function checkAnswer(){
 function randomTask(){
     let rand = Math.round(Math.random()*3);
     console.log("level: " + difficulties[level]);
-    console.log(rand);
     switch(rand){
         case 0: plus();
         break;
@@ -186,6 +217,10 @@ document.addEventListener('keydown', (event) => {
                 case "Enter": checkAnswer();
                 break;
                 case "Backspace": backspace();
+                break;
+                case "f": levelSwitch();
+                break;
+                case "c": clearInput();
                 break;
                 default: numeros(button);
             }   

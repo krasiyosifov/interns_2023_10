@@ -19,7 +19,7 @@ function gameStart(){
     rounds = 0;
     level = 0;
     difficulty = difficulties[level];
-    document.getElementById("levelButton").innerHTML = difficulties[level];
+    document.getElementById("f").innerHTML = difficulties[level];
     document.getElementById("nextLevelButton").classList.remove("d-none");
     document.getElementById("playAgainButton").classList.add("d-none");
     game.classList.remove("d-none");
