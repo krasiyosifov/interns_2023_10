@@ -53,7 +53,7 @@
 }
 
 .sidebtn{
-    background-color: #a17ed2;
+    background-color: #a17ed2; 
     border: 2px solid #6e609f;
     color: #f0d9ff;
 }
@@ -72,17 +72,17 @@
 }
 
 .resborder{
-    border: solid 3px #6e609f;
-    border-radius: 15px;
-    text-align: center;
+    border: solid 3px #6e609f !important;
+    border-radius: 15px !important;
+    text-align: center !important;
 }
 
 .startbtn{
-    background-color: #a17ed2;
-    border: 2px solid #6e609f;
-    width: 25vw;
-    color: #f0d9ff;
-    font-size: 20px;
+    background-color: #a17ed2 !important;
+    border: 2px solid #6e609f !important;
+    width: 25vw !important;
+    color: #f0d9ff !important;
+    font-size: 20px !important;
 }
 
 .btnstl {

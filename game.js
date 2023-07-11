@@ -3,6 +3,8 @@ let level = 0;
 let difficulty = difficulties[0];
 let type;
 let points = 0;
+let progressP = 0;
+let progressN = 0;
 let rounds = 0;
 let myAnswer;
 let answer = 0;
@@ -133,13 +135,26 @@ function levelSwitch() {
     }
 }
 
+function UpdateProgressBar(){
+    let width;
+    width = progressP + "%";
+    document.getElementById("progressP").style.width = width;
+    width = progressN + "%";
+    document.getElementById("progressN").style.width = width;
+}
+
 function checkAnswer(){
     rounds++;
     let userAnswer = document.getElementById("userInput").value;
     if(userAnswer != "" && answer == Number(userAnswer)){
         points++;
+        progressP += 20;
         console.log("Earned Point!");
+    }else{
+        progressN += 20;
     }
+    
+    
     
     if(rounds == 5){
         if (level == 2) {
@@ -151,6 +166,8 @@ function checkAnswer(){
         document.getElementById("result").innerHTML = "Result " + points + "/5";
         rounds=0;
         points=0;
+        progressN = 0;
+        progressP = 0;
     }
 
     switch(type){
@@ -164,6 +181,7 @@ function checkAnswer(){
         break;
     }
     clearInput();
+    UpdateProgressBar();
 }
 function randomTask(){
     let rand = Math.round(Math.random()*3);
