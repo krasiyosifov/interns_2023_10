@@ -10,8 +10,12 @@ let myAnswer;
 let answer = 0;
 let numFirst = 0;
 let numSecond = 0;
-let soundOn = true;
+let soundOn = false;
 let buttons = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "Backspace", "Enter", "+", "-", "*", "/", "f", "c"];
+
+function test(){
+    $('#gameResult').modal('show');
+}
 
 function randomNumbers(minFirst, maxFirst, minSecond, maxSecond){
     numFirst = Math.round(Math.random() * maxFirst + minFirst);
@@ -35,7 +39,7 @@ function plus(){
         case "Hard": randomNumbers(200, 799, 10, 90);
         break;
     }
-    document.getElementById("task").innerHTML = numFirst + " + " + numSecond + " = ";
+    document.getElementById("task").value = numFirst + " + " + numSecond + " = ";
     type = "+";
     answer = numFirst + numSecond;
     console.log(answer);
@@ -54,7 +58,7 @@ function minus(){
         numFirst = numSecond;
         numSecond = temp;
     }
-    document.getElementById("task").innerHTML = numFirst + " - " + numSecond + " = ";
+    document.getElementById("task").value = numFirst + " - " + numSecond + " = ";
     type = "-";
     answer = numFirst - numSecond;
     console.log(answer);
@@ -69,7 +73,7 @@ function multiplication(){
         case "Hard": randomNumbers(200, 799, 10, 90);
         break;
     }
-    document.getElementById("task").innerHTML = numFirst + " * " + numSecond + " = ";
+    document.getElementById("task").value = numFirst + " * " + numSecond + " = ";
     type = "*";
     answer = numFirst * numSecond;
     console.log(answer);
@@ -97,7 +101,7 @@ function division(){
         return division();
     }
     answer = finalFirstNum / numFirst;
-    document.getElementById("task").innerHTML = finalFirstNum + " ÷ " + numFirst + " = ";
+    document.getElementById("task").value = finalFirstNum + " ÷ " + numFirst + " = ";
     type = "/";
     console.log(answer);
 }
@@ -157,20 +161,11 @@ function checkAnswer(){
         progressN += 20;
     }
     
-    
-    
-    if(rounds == 5){
-        if (level == 2) {
-            document.getElementById("nextLevelButton").classList.add("d-none");
-            document.getElementById("playAgainButton").classList.remove("d-none");
-        }
-        document.getElementById("gamesn").classList.add("d-none");
-        document.getElementById("endsn").classList.remove("d-none");
+    if(rounds == 5){ 
         document.getElementById("result").innerHTML = "Result " + points + "/5";
         rounds=0;
         points=0;
-        progressN = 0;
-        progressP = 0;
+        test();
     }
 
     switch(type){
@@ -203,12 +198,12 @@ function randomTask(){
 function sound(num) {
     var sound;
     if (soundOn) {
-        if (num == 1) {
-            sound = new Audio('sounds/click_new.mp3')
-        } else if (num == 2) {
-            sound = new Audio('sounds/fade_in_new.mp3')
-        } else if (num == 3) {
-            sound = new Audio('sounds/fade_out_new.mp3')
+        switch(num){
+            case 1: sound = new Audio('sounds/click_new.mp3')
+            break;
+            case 2: sound = new Audio('sounds/fade_in_new.mp3')
+            break;
+            case 3: sound = new Audio('sounds/fade_out_new.mp3')
         }
         sound.play()
         sound.volume = 0.3;

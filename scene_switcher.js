@@ -15,25 +15,22 @@ function homeMenu(){
 }
 function gameStart(){
     set()
-    points = 0;
-    rounds = 0;
+    reset()
     level = 0;
     difficulty = difficulties[level];
     document.getElementById("f").innerHTML = difficulties[level];
-    document.getElementById("nextLevelButton").classList.remove("d-none");
-    document.getElementById("playAgainButton").classList.add("d-none");
     game.classList.remove("d-none");
     home.classList.add("d-none");  
     end.classList.add("d-none");
     randomTask();
 }
-function nextLevelF() {
+function endGame(){
     set()
-    levelSwitch();
-    game.classList.remove("d-none");
-    home.classList.add("d-none");  
-    end.classList.add("d-none");
-
+    points = 0;
+    rounds = 0;
+    level = 0;
+    game.classList.add("d-none");
+    end.classList.remove("d-none");
 }
 function back() {
     set()
