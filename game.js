@@ -203,6 +203,7 @@ document.addEventListener('keydown', (event) => {
             document.getElementById(button).classList.add("active");
             setTimeout(()=>{
             document.getElementById(button).classList.remove("active");
+            sound(1);
         }, 150);
         if(!document.getElementById("gamesn").classList.contains("d-none"))
             switch(button){
