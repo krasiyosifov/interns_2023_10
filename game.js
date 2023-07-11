@@ -11,7 +11,6 @@ let numSecond = 0;
 let soundOn = true;
 let buttons = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "Backspace", "Enter", "+", "-", "*", "/", "f", "c"];
 
-
 function randomNumbers(minFirst, maxFirst, minSecond, maxSecond){
     numFirst = Math.round(Math.random() * maxFirst + minFirst);
     numSecond = Math.round(Math.random() * maxSecond + minSecond);
@@ -19,10 +18,10 @@ function randomNumbers(minFirst, maxFirst, minSecond, maxSecond){
         randomNumbers(minFirst, maxFirst, minSecond, maxSecond);
     }
     if(numFirst==0 && (Math.round(Math.random()*100)<=50)){
-        numFirst = numFirst = Math.round(Math.random() * maxFirst + 1);
+        numFirst = Math.round(Math.random() * maxFirst + 1);
     }
     if(numSecond==0 && (Math.round(Math.random()*100)<=50)){
-        numSecond = numSecond = Math.round(Math.random() * maxFirst + 1);
+        numSecond = Math.round(Math.random() * maxFirst + 1);
     }
 }
 function plus(){
@@ -74,6 +73,11 @@ function multiplication(){
     console.log(answer);
 }
 
+function reset() {
+    rounds=0;
+    points=0;
+}
+
 function division(){
     switch(difficulty){
         case "Easy": randomNumbers(1, 9, 0, 10);
@@ -108,6 +112,8 @@ function backspace(){
 }
 
 function levelSwitch() {
+    rounds=0;
+    points=0;
     if (level != 2) {
         level++
     } else {
