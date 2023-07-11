@@ -78,6 +78,9 @@ function multiplication(){
 function reset() {
     rounds=0;
     points=0;
+    progressN=0;
+    progressP=0;
+    UpdateProgressBar();
 }
 
 function division(){
@@ -114,8 +117,7 @@ function backspace(){
 }
 
 function levelSwitch() {
-    rounds=0;
-    points=0;
+    reset();
     if (level != 2) {
         level++
     } else {
@@ -133,6 +135,7 @@ function levelSwitch() {
         case "/": division();
         break;
     }
+    clearInput();
 }
 
 function UpdateProgressBar(){
