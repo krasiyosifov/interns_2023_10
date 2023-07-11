@@ -58,6 +58,19 @@
     color: #f0d9ff;
 }
 
+.sidebtn:hover,
+.sidebtn:focus {
+    background-color: #a17ed2 !important;
+    border: 2px solid #6e609f !important;
+    color: #f0d9ff !important;
+}
+.sidebtn:active,
+.sidebtn.active{
+    background-color: #a17ed2 !important;
+    border: 2px solid #6e609f !important;
+    color: #f0d9ff !important;
+}
+
 .resborder{
     border: solid 3px #6e609f;
     border-radius: 15px;
