@@ -12,6 +12,7 @@
   <script src="game.js"></script>
   <script src="scene_switcher.js"></script>
   <script src="stats.js"></script>
+  <script src="modes.js"></script>
   <link rel="icon" href="./images/FavLogo.png" type="image/icon type" />
 </head>
 
@@ -25,6 +26,14 @@
         <div class="d-flex flex-row align-items-center justify-content-center">
           <button class="btn mx-1 mt-1 btn-light btn-lg startbtn" onclick="gameStart(), sound(1)" id="playButton">Play</button>
           <button class="btn mx-1 mt-1 btn-light btn-lg startbtn" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="sound(2)">Info</button>
+          <button class="btn mx-1 mt-1 btn-light btn-lg startbtn dropdown-toggle" onclick="sound(1)" data-bs-toggle="dropdown">Modes</button>
+  
+          <ul class="dropdown-menu dropdown-menu-dark">
+            <li><a class="dropdown-item btn btn-lg" onclick="switchMode(0)">Action</a></li>
+            <li><a class="dropdown-item btn btn-lg" onclick="switchMode(1)">Another action</a></li>
+            <li><a class="dropdown-item btn btn-lg" onclick="switchMode(2)">Something else here</a></li>
+          </ul>
+        
 
           <!-- Modal -->
           <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"

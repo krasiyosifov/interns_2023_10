@@ -102,3 +102,7 @@ input[type=number] {
     color:#a17ed2;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+.dropdown-menu-dark {
+    --bs-dropdown-color: #dee2e6;
+    --bs-dropdown-bg: #6e609f;
+}

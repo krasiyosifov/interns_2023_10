@@ -12,7 +12,18 @@ let numFirst = 0;
 let numSecond = 0;
 let soundOn = true;
 let modalisShown = false;
+let mode = 0;
 let buttons = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "Backspace", "Enter", "+", "-", "*", "/", "f", "c"];
+
+function switchMode(mode) {
+     switch(mode) {
+        case 0: normalMode();
+        break;
+        case 1: speedMode();
+        break;
+        case 2: extreamMode();
+     }
+}
 
 function closeModal(){
     modalisShown = false;
