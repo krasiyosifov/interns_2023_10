@@ -84,6 +84,8 @@ function reset() {
     points=0;
     progressN=0;
     progressP=0;
+    let gameImage = document.getElementById("gameSceneDog");
+    gameImage.src = './images/transition dog.png';
     UpdateProgressBar();
 }
 
@@ -150,19 +152,34 @@ function UpdateProgressBar(){
     document.getElementById("progressN").style.width = width;
 }
 
+function checkImageAnswers(answer,imgSrc) {
+    console.log(imgSrc);
+    if ((imgSrc.src === './images/sad dog.png' && answer === 'sad') || (imgSrc.src === './images/mate.png' && answer === 'happy')) {
+        return;
+    }
+    return answer === 'happy' ? imgSrc.src = './images/mate.png' : imgSrc.src = './images/sad dog.png'
+}
+
 function checkAnswer(){
     rounds++;
     let userAnswer = document.getElementById("userInput").value;
+    let gameImage = document.getElementById("gameSceneDog")
     if(userAnswer != "" && answer == Number(userAnswer)){
         points++;
         progressP += 20;
         console.log("Earned Point!");
-    }else{
+        checkImageAnswers('happy', gameImage);
+    } else if (answer !== Number(userAnswer)) {
+        checkImageAnswers('sad', gameImage);
+    }
+    else{
         progressN += 20;
     }
     
     if(rounds == 5){ 
         document.getElementById("result").innerHTML = "Result " + points + "/5";
+        let endImage = document.getElementById("endSceneDog");
+        checkImageAnswers(points >= 3 ? 'happy' : 'sad', endImage);
         rounds=0;
         points=0;
         openResultModal();
