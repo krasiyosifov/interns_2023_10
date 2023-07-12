@@ -237,10 +237,10 @@ function sound(num) {
 function soundTurn() {
       if (soundOn) {
         soundOn = false;
-        document.getElementById("soundButtonHome").innerHTML = "Sound: OFF";
+        document.getElementById("soundButton").innerHTML = "Sound: OFF";
     } else {
         soundOn = true;
-        document.getElementById("soundButtonHome").innerHTML = "Sound: ON";
+        document.getElementById("soundButton").innerHTML = "Sound: ON";
     }
 }
 document.addEventListener('keydown', (event) => {
