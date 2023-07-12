@@ -18,6 +18,13 @@ let buttons = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "Backspace", "E
 
 function switchMode(num) {
     mode = num;
+    switch (mode) {
+        case 1: normalMode();
+        break;
+        case 2: extreamMode();
+        break;
+        default: normalMode();
+    }
 }
 
 function switchDifficulty () {
