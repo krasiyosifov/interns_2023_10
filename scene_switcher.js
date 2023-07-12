@@ -31,6 +31,7 @@ function endGame(){
     level = 0;
     game.classList.add("d-none");
     end.classList.remove("d-none");
+    setStats()
 }
 function back() {
     set()

@@ -11,9 +11,15 @@ let answer = 0;
 let numFirst = 0;
 let numSecond = 0;
 let soundOn = true;
+let modalisShown = false;
 let buttons = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "Backspace", "Enter", "+", "-", "*", "/", "f", "c"];
 
+function closeModal(){
+    modalisShown = false;
+}
+
 function openResultModal(){
+    modalisShown = true;
     $('#gameResult').modal('show');
 }
 
@@ -87,6 +93,7 @@ function reset() {
     let gameImage = document.getElementById("gameSceneDog");
     gameImage.src = './images/transition dog.png';
     UpdateProgressBar();
+    addGame();
 }
 
 function division(){
@@ -153,7 +160,6 @@ function UpdateProgressBar(){
 }
 
 function checkImageAnswers(answer,imgSrc) {
-    console.log(imgSrc);
     if ((imgSrc.src === './images/sad dog.png' && answer === 'sad') || (imgSrc.src === './images/mate.png' && answer === 'happy')) {
         return;
     }
@@ -162,19 +168,21 @@ function checkImageAnswers(answer,imgSrc) {
 
 function checkAnswer(){
     rounds++;
+    addRound();
     let userAnswer = document.getElementById("userInput").value;
     let gameImage = document.getElementById("gameSceneDog")
     if(userAnswer != "" && answer == Number(userAnswer)){
         points++;
         progressP += 20;
-        console.log("Earned Point!");
         checkImageAnswers('happy', gameImage);
-    } else if (answer !== Number(userAnswer)) {
-        checkImageAnswers('sad', gameImage);
-    }
-    else{
+    }else{
         progressN += 20;
     }
+    addAnswer(answer, userAnswer)
+    if (answer !== Number(userAnswer)) {
+        checkImageAnswers('sad', gameImage);
+    }
+    
     
     if(rounds == 5){ 
         document.getElementById("result").innerHTML = "Result " + points + "/5";
@@ -230,44 +238,42 @@ function soundTurn() {
       if (soundOn) {
         soundOn = false;
         document.getElementById("soundButtonHome").innerHTML = "Sound: OFF";
-        document.getElementById("soundButtonGame").innerHTML = "Sound: OFF";
-        document.getElementById("soundButtonEnd").innerHTML = "Sound: OFF";
     } else {
         soundOn = true;
         document.getElementById("soundButtonHome").innerHTML = "Sound: ON";
-        document.getElementById("soundButtonGame").innerHTML = "Sound: ON";
-        document.getElementById("soundButtonEnd").innerHTML = "Sound: ON";
     }
 }
 document.addEventListener('keydown', (event) => {
     var button = event.key;
-    for(let i = 0; i< buttons.length; i++){
-        if(buttons[i] == button){
-            document.getElementById(button).classList.add("active");
-            setTimeout(()=>{
-            document.getElementById(button).classList.remove("active");
-            sound(1);
-        }, 150);
-        if(!$('#gameResult').hasClass('show') || !document.getElementById("gamesn").classList.contains("d-none"))
-            switch(button){
-                case "+": plus();
-                break;
-                case "-": minus();
-                break;
-                case "*": multiplication();
-                break;
-                case "/": division();
-                break;
-                case "Enter": checkAnswer();
-                break;
-                case "Backspace": backspace();
-                break;
-                case "f": levelSwitch();
-                break;
-                case "c": clearInput();
-                break;
-                default: numeros(button);
-            }   
-        } 
-    }
+    
+    if(!$('#gameResult').hasClass('show') && !modalisShown && !document.getElementById("gamesn").classList.contains("d-none")){
+        for(let i = 0; i< buttons.length; i++){
+            if(buttons[i] == button){
+                document.getElementById(button).classList.add("active");
+                setTimeout(()=>{
+                    document.getElementById(button).classList.remove("active");
+                    sound(1);
+                }, 150);
+            }
+        }
+        switch(button){
+            case "+": plus();
+            break;
+            case "-": minus();
+            break;
+            case "*": multiplication();
+            break;
+            case "/": division();
+            break;
+            case "Enter": checkAnswer();
+            break;
+            case "Backspace": backspace();
+            break;
+            case "f": levelSwitch();
+            break;
+            case "c": clearInput();
+            break;
+            default: numeros(button);
+        }
+    }    
 }, false);
