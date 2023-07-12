@@ -13,64 +13,61 @@ let numSecond = 0;
 let soundOn = true;
 let modalisShown = false;
 let mode = 0;
-let buttons = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "Backspace", "Enter", "+", "-", "*", "/", "f", "c"];
+let d = new Date();
+let buttons = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "Backspace", "Enter", "+", "-", "*", "/", "f", "c", "Escape"];
 
-function switchMode(mode) {
-     switch(mode) {
-        case 0: normalMode();
-        break;
-        case 1: speedMode();
-        break;
-        case 2: extreamMode();
-     }
+function switchMode(num) {
+    mode = num;
 }
 
-function closeModal(){
-    modalisShown = false;
-}
-
-function openResultModal(){
-    stopTimer()
-    modalisShown = true;
-    $('#gameResult').modal('show');
-}
-
-function randomNumbers(minFirst, maxFirst, minSecond, maxSecond){
-    numFirst = Math.round(Math.random() * maxFirst + minFirst);
-    numSecond = Math.round(Math.random() * maxSecond + minSecond);
-    if(numFirst==0 && numSecond==0){
-        randomNumbers(minFirst, maxFirst, minSecond, maxSecond);
-    }
-    if(numFirst==0 && (Math.round(Math.random()*100)<=50)){
-        numFirst = Math.round(Math.random() * maxFirst + 1);
-    }
-    if(numSecond==0 && (Math.round(Math.random()*100)<=50)){
-        numSecond = Math.round(Math.random() * maxFirst + 1);
-    }
-}
-function plus(){
+function switchDifficulty () {
     switch(difficulty){
         case "Easy": randomNumbers(0, 10, 0, 10);
         break;
-        case "Normal": randomNumbers(10, 90, 10, 90);
+        case "Normal": randomNumbers(10, 90, 0, 9);
         break;
         case "Hard": randomNumbers(200, 799, 10, 90);
         break;
     }
+}
+
+function switchtype() {
+    switch(type){
+        case "+": plus();
+        break;
+        case "-": minus();
+        break;
+        case "*": multiplication();
+        break;
+        case "/": division();
+        break;
+    }
+}
+
+function levelSwitch() {
+    reset();
+    if (level != 2) {
+        level++
+    } else {
+        level = 0;
+    }
+    difficulty = difficulties[level];
+    document.getElementById("f").innerHTML = difficulties[level];
+    switchtype()
+    clearInput();
+    startTimer()
+}
+
+function plus(){
+    switchDifficulty ()
     document.getElementById("task").value = numFirst + " + " + numSecond + " = ";
     type = "+";
     answer = numFirst + numSecond;
     console.log(answer);
 }
+
 function minus(){
-    switch(difficulty){
-        case "Easy": randomNumbers(5, 15, 0, 10);
-        break;
-        case "Normal": randomNumbers(10, 90, 5, 95);
-        break;
-        case "Hard": randomNumbers(300, 699, 10, 90);
-        break;
-    }
+    switchDifficulty ()
     if(numFirst<numSecond){
         let temp = numFirst;
         numFirst = numSecond;
@@ -83,41 +80,15 @@ function minus(){
 }
 
 function multiplication(){
-    switch(difficulty){
-        case "Easy": randomNumbers(0, 10, 0, 10);
-        break;
-        case "Normal": randomNumbers(10, 90, 0, 9);
-        break;
-        case "Hard": randomNumbers(200, 799, 10, 90);
-        break;
-    }
+    switchDifficulty ()
     document.getElementById("task").value = numFirst + " * " + numSecond + " = ";
     type = "*";
     answer = numFirst * numSecond;
     console.log(answer);
 }
 
-function reset() {
-    rounds=0;
-    points=0;
-    progressN=0;
-    progressP=0;
-    let gameImage = document.getElementById("gameSceneDog");
-    gameImage.src = './images/transition dog.png';
-    UpdateProgressBar();
-    addGame();
-    stopTimer();
-}
-
 function division(){
-    switch(difficulty){
-        case "Easy": randomNumbers(1, 9, 0, 10);
-        break;
-        case "Normal": randomNumbers(2, 8, 0, 20);
-        break;
-        case "Hard": randomNumbers(10, 89, 1, 9);
-        break;
-    }
+    switchDifficulty ()
     let finalFirstNum = numFirst * numSecond;
     if(finalFirstNum < 100  && difficulty == "Hard"){
         return division();
@@ -126,6 +97,16 @@ function division(){
     document.getElementById("task").value = finalFirstNum + " ÷ " + numFirst + " = ";
     type = "/";
     console.log(answer);
+}
+
+function closeModal(){
+    modalisShown = false;
+}
+
+function openResultModal(){
+    stopTimer()
+    modalisShown = true;
+    $('#gameResult').modal('show');
 }
 
 function numeros(num){
@@ -142,42 +123,37 @@ function backspace(){
     value.value = value.value.slice(0, -1);    
 }
 
-function levelSwitch() {
-    reset();
-    if (level != 2) {
-        level++
-    } else {
-        level = 0;
-    }
-    difficulty = difficulties[level];
-    document.getElementById("f").innerHTML = difficulties[level];
-    switch(type){
-        case "+": plus();
-        break;
-        case "-": minus();
-        break;
-        case "*": multiplication();
-        break;
-        case "/": division();
-        break;
-    }
-    clearInput();
-    startTimer()
+function reset() {
+    rounds=0;
+    points=0;
+    progressN=0;
+    progressP=0;
+    let gameImage = document.getElementById("gameSceneDog");
+    gameImage.src = './images/transition dog.png';
+    UpdateProgressBar();
+    addGame();
+    stopTimer();
 }
 
-function UpdateProgressBar(){
-    let width;
-    width = progressP + "%";
-    document.getElementById("progressP").style.width = width;
-    width = progressN + "%";
-    document.getElementById("progressN").style.width = width;
+function result() {
+    document.getElementById("result").innerHTML = "Result " + points + "/5";
+    let endImage = document.getElementById("endSceneDog");
+    checkImageAnswers(points >= 3 ? 'happy' : 'sad', endImage);
+    openResultModal();
 }
 
-function checkImageAnswers(answer,imgSrc) {
-    if ((imgSrc.src === './images/sad dog.png' && answer === 'sad') || (imgSrc.src === './images/mate.png' && answer === 'happy')) {
-        return;
+function randomNumbers(minFirst, maxFirst, minSecond, maxSecond){
+    numFirst = Math.round(Math.random() * maxFirst + minFirst);
+    numSecond = Math.round(Math.random() * maxSecond + minSecond);
+    if(numFirst==0 && numSecond==0){
+        randomNumbers(minFirst, maxFirst, minSecond, maxSecond);
     }
-    return answer === 'happy' ? imgSrc.src = './images/mate.png' : imgSrc.src = './images/sad dog.png'
+    if(numFirst==0 && (Math.round(Math.random()*100)<=50)){
+        numFirst = Math.round(Math.random() * maxFirst + 1);
+    }
+    if(numSecond==0 && (Math.round(Math.random()*100)<=50)){
+        numSecond = Math.round(Math.random() * maxFirst + 1);
+    }
 }
 
 function checkAnswer(){
@@ -187,40 +163,42 @@ function checkAnswer(){
     let gameImage = document.getElementById("gameSceneDog")
     if(userAnswer != "" && answer == Number(userAnswer)){
         points++;
-        progressP += 20;
         checkImageAnswers('happy', gameImage);
     }else{
-        progressN += 20;
+        if (mode == 2) {
+            result();
+            document.getElementById("result").innerHTML = "Result " + points;
+            progressN += 100;
+        } else {
+            progressN += 20;
+        }
     }
     addAnswer(answer, userAnswer)
     if (answer !== Number(userAnswer)) {
         checkImageAnswers('sad', gameImage);
     }
     
-    
-    if(rounds == 5){ 
-        document.getElementById("result").innerHTML = "Result " + points + "/5";
-        let endImage = document.getElementById("endSceneDog");
-        checkImageAnswers(points >= 3 ? 'happy' : 'sad', endImage);
+    if(rounds == 5 && mode != 2){ 
+        result();
         rounds=0;
         points=0;
-        openResultModal();
     }
 
-    switch(type){
-        case "+": plus();
-        break;
-        case "-": minus();
-        break;
-        case "*": multiplication();
-        break;
-        case "/": division();
-        break;
-    }
+    switchtype()
     clearInput();
     UpdateProgressBar();
 }
+
+function checkImageAnswers(answer,imgSrc) {
+    if ((imgSrc.src === './images/sad dog.png' && answer === 'sad') || (imgSrc.src === './images/mate.png' && answer === 'happy')) {
+        return;
+    }
+    return answer === 'happy' ? imgSrc.src = './images/mate.png' : imgSrc.src = './images/sad dog.png'
+}
+
+
 function randomTask(){
+    let a = d.getSeconds();
     let rand = Math.round(Math.random()*3);
     console.log("level: " + difficulties[level]);
     switch(rand){
@@ -234,6 +212,15 @@ function randomTask(){
         break;
     }
 }
+
+function UpdateProgressBar(){
+    let width;
+    width = progressP + "%";
+    document.getElementById("progressP").style.width = width;
+    width = progressN + "%";
+    document.getElementById("progressN").style.width = width;
+}
+
 function sound(num) {
     var sound;
     if (soundOn) {
@@ -290,4 +277,12 @@ document.addEventListener('keydown', (event) => {
             default: numeros(button);
         }
     }    
+}, false);
+
+document.addEventListener('keydown', (event) => {
+    var button = event.key;
+        switch(button){
+            case "Escape": homeMenu();
+            break;
+        }  
 }, false);

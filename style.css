@@ -103,6 +103,5 @@ input[type=number] {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .dropdown-menu-dark {
-    --bs-dropdown-color: #dee2e6;
-    --bs-dropdown-bg: #6e609f;
+    --bs-dropdown-bg: #4a2375;
 }
