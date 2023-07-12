@@ -1,14 +1,10 @@
 let home;
 let game;
 let end
-let prog;
-let prog1;
 function set() {
     home = document.getElementById("homesn");
     game = document.getElementById("gamesn");
     end = document.getElementById("endsn");
-    prog = document.getElementById("progressP");
-    prog1 = document.getElementById("progressN");
 }
 
 function homeMenu(){
@@ -19,14 +15,6 @@ function homeMenu(){
 }
 function gameStart(){
     set()
-    if (mode == 2) {
-        if (mode == 2) {
-            prog.classList.add("d-none");
-            prog1.classList.add("d-none");
-        }
-    }
-    prog.classList.remove("d-none");
-    prog1.classList.remove("d-none");
     reset()
     level = 0;
     difficulty = difficulties[level];

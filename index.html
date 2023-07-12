@@ -26,12 +26,12 @@
         <div class="d-flex flex-row align-items-center justify-content-center">
           <button class="btn mx-1 mt-1 btn-light btn-lg startbtn" onclick="gameStart(), sound(1)" id="playButton">Play</button>
           <button class="btn mx-1 mt-1 btn-light btn-lg startbtn" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="sound(2)">Info</button>
-          <button class="btn mx-1 mt-1 btn-light btn-lg startbtn dropdown-toggle" onclick="sound(1)" data-bs-toggle="dropdown">Modes</button>
+          <button class="btn mx-1 mt-1 btn-light btn-lg startbtn" onclick="sound(1)" data-bs-toggle="dropdown" id="modesButton">Normal</button>
   
           <ul class="dropdown-menu dropdown-menu-dark">
-            <li><a class="dropdown-item btn btn-lg" onclick="switchMode(0)">Normal</a></li>
+            <li><a class="dropdown-item btn btn-lg" onclick="switchMode(0), sound(1)">Normal Mode</a></li>
             <div class="dropdown-divider"></div>
-            <li><a class="dropdown-item btn btn-lg" onclick="switchMode(2)">Extream mode</a></li>
+            <li><a class="dropdown-item btn btn-lg" onclick="switchMode(2), sound(1)">Extreme Mode</a></li>
           </ul>
         
 
@@ -149,7 +149,7 @@
               <button id="f" onclick="sound(1), levelSwitch()"
                 class="col mx-1 btn btn-success btn-lg btn3d btnstl">Level</button>
             </div>
-            <div class="progress mt-2" style="border: 3px solid #4a2375; background-color: #9876c9">
+            <div id="progressClass" class="progress mt-2" style="border: 3px solid #4a2375; background-color: #9876c9">
                 <div id="progressP" class="progress-bar-animated bg-success" role="progressbar" style="width: 0%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
                 <div id="progressN" class="progress-bar-animated bg-danger" role="progressbar" style="width: 0%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
