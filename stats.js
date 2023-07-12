@@ -9,6 +9,7 @@ let hour = 0;
 let minute = 0;
 let second = 0;
 let count = 0;
+let outTime;
 
 function setStats(){
     document.getElementById("playTime").innerHTML = "Total play time: ";
@@ -87,8 +88,7 @@ function stopWatch() {
         if (count < 10) {
             countString = "0" + countString;
         }
-        let outTime = hrString + " " + minString + " " + secString;
-        document.getElementById("playTime").innerHTML = "Total play time: " + outTime;
+        outTime = hrString + " " + minString + " " + secString + " " + countString;
         setTimeout(stopWatch, 10);
     }
 }

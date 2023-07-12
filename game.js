@@ -55,7 +55,6 @@ function levelSwitch() {
     document.getElementById("f").innerHTML = difficulties[level];
     switchtype()
     clearInput();
-    startTimer()
 }
 
 function plus(){
@@ -177,7 +176,12 @@ function checkAnswer(){
     if (answer !== Number(userAnswer)) {
         checkImageAnswers('sad', gameImage);
     }
-    
+    if(level == 2){
+        document.getElementById("nextLevelBtn").classList.add("d-none")
+    }else{
+        document.getElementById("nextLevelBtn").classList.remove("d-none")
+    }
+
     if(rounds == 5 && mode != 2){ 
         result();
         rounds=0;

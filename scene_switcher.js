@@ -45,7 +45,7 @@ function endGame(){
     game.classList.add("d-none");
     end.classList.remove("d-none");
     setStats()
-    stopTimer();
+    document.getElementById("playTime").innerHTML = "Total play time: " + outTime
 }
 function back() {
     set()
