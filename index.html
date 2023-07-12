@@ -82,7 +82,6 @@
 
   <!-- Game screen container start-->
   <div id="gamesn" class="container-fluid d-none">
-    <!-- <div id="gamesn" class="container-fluid d-none"> -->
     <div class="row min-vh-100 flex-column justify-content-center align-items-center">
       <div class="d-flex justify-content-center">
         <img class="" src="images/Untitled_Artwork.png" alt="emoji"/>
@@ -186,16 +185,29 @@
   <!-- Game screen container end-->
 
   <!-- End screen container start-->
-  <div id="endsn" class="d-none">
-    <div class="container d-flex min-vh-100 flex-column align-items-center justify-content-center">
-      <div class="row align-items-center justify-content-center">
-        <div class="row flex-md-row flex-column align-items-center">
-          <button class="col-xs-9 mx-md-1 mt-1 col btn btn-light btn-lg sidebtn" onclick="homeMenu()">Home menu</button>
+  <div id="endsn" class="container-fluid d-none">
+    <div class="row min-vh-100 flex-column justify-content-center align-items-center">
+      <div class="d-flex align-self-center justify-content-center">
+        <h1 class="title">Scores</h1>
+      </div>
+      <div class="d-flex justify-content-start w-50 shadow rounded p-2" style="background-color: #e3c3f8;">
+        <div class="d-flex flex-column">
+          <p class="m-1 title">Total play time:</p>
+          <p class="m-1 title">Total rounds:</p>
+          <p class="m-1 title">Total games:</p>
+          <p class="m-1 title">Correct answers:</p>
+          <p class="m-1 title">Incorrect answers:</p>
         </div>
       </div>
-      <div class="d-flex col-8 col-xs-7 col-sm-6 col-md-5 col-lg-4 col-xl-3 align-self-center justify-content-center">
+      <div class="d-flex align-self-center justify-content-center">
         <img class="img-fluid mt-4" src="./images/mate.png" alt="emoji"/>
       </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="w-25">
+          <button class="btn btn-lg sidebtn text-nowarp text-center w-100" onclick="homeMenu()">Restart</button>
+        </div>
+      </div>
+      
     </div>
   </div>
   <!-- End screen container end -->
