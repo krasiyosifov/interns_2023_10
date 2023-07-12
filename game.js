@@ -10,10 +10,10 @@ let myAnswer;
 let answer = 0;
 let numFirst = 0;
 let numSecond = 0;
-let soundOn = false;
+let soundOn = true;
 let buttons = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "Backspace", "Enter", "+", "-", "*", "/", "f", "c"];
 
-function test(){
+function openResultModal(){
     $('#gameResult').modal('show');
 }
 
@@ -165,7 +165,7 @@ function checkAnswer(){
         document.getElementById("result").innerHTML = "Result " + points + "/5";
         rounds=0;
         points=0;
-        test();
+        openResultModal();
     }
 
     switch(type){
@@ -212,11 +212,15 @@ function sound(num) {
 function soundTurn() {
       if (soundOn) {
         soundOn = false;
-        document.getElementById("soundButton").innerHTML = "Sound: OFF";
-      } else {
+        document.getElementById("soundButtonHome").innerHTML = "Sound: OFF";
+        document.getElementById("soundButtonGame").innerHTML = "Sound: OFF";
+        document.getElementById("soundButtonEnd").innerHTML = "Sound: OFF";
+    } else {
         soundOn = true;
-        document.getElementById("soundButton").innerHTML = "Sound: ON";
-      }
+        document.getElementById("soundButtonHome").innerHTML = "Sound: ON";
+        document.getElementById("soundButtonGame").innerHTML = "Sound: ON";
+        document.getElementById("soundButtonEnd").innerHTML = "Sound: ON";
+    }
 }
 document.addEventListener('keydown', (event) => {
     var button = event.key;
@@ -227,7 +231,7 @@ document.addEventListener('keydown', (event) => {
             document.getElementById(button).classList.remove("active");
             sound(1);
         }, 150);
-        if(!document.getElementById("gamesn").classList.contains("d-none"))
+        if(!$('#gameResult').hasClass('show') || !document.getElementById("gamesn").classList.contains("d-none"))
             switch(button){
                 case "+": plus();
                 break;
