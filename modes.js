@@ -6,7 +6,7 @@ function normalMode() {
 }
 
 function extreamMode() {
-    let modeButton = document.getElementById("modesButton").innerHTML = "Extream";
+    let modeButton = document.getElementById("modesButton").innerHTML = "Extreme";
     let prog = document.getElementById("progressClass");
 
     prog.classList.add("d-none");

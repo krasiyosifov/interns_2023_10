@@ -287,8 +287,8 @@ document.addEventListener('keydown', (event) => {
 }, false);
 
 document.addEventListener('keydown', (event) => {
-    var button = event.key;
-        switch(button){
+    var button1 = event.key;
+        switch(button1){
             case "Escape": homeMenu();
             break;
         }  
