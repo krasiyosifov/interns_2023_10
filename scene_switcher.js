@@ -23,6 +23,7 @@ function gameStart(){
     home.classList.add("d-none");  
     end.classList.add("d-none");
     randomTask();
+    startTimer();
 }
 function endGame(){
     set()
@@ -32,6 +33,7 @@ function endGame(){
     game.classList.add("d-none");
     end.classList.remove("d-none");
     setStats()
+    stopTimer();
 }
 function back() {
     set()

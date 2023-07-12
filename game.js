@@ -30,6 +30,7 @@ function closeModal(){
 }
 
 function openResultModal(){
+    stopTimer()
     modalisShown = true;
     $('#gameResult').modal('show');
 }
@@ -105,6 +106,7 @@ function reset() {
     gameImage.src = './images/transition dog.png';
     UpdateProgressBar();
     addGame();
+    stopTimer();
 }
 
 function division(){
@@ -160,6 +162,7 @@ function levelSwitch() {
         break;
     }
     clearInput();
+    startTimer()
 }
 
 function UpdateProgressBar(){

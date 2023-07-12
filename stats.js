@@ -5,8 +5,13 @@ let TotalAnswers = 0;
 let TotalCorrectAnswers = 0;
 let TotalIncorrectAnswers = 0;
 
+let hour = 0;
+let minute = 0;
+let second = 0;
+let count = 0;
+
 function setStats(){
-    document.getElementById("playTime").innerHTML = "Total play time: " + PlayTime;
+    document.getElementById("playTime").innerHTML = "Total play time: ";
     document.getElementById("totalRounds").innerHTML = "Total rounds: " + TotalRounds;
     document.getElementById("totalGames").innerHTML = "Total games: " + TotalGames;
     document.getElementById("correctPoints").innerHTML = "Correct answers: " + TotalCorrectAnswers;
@@ -31,5 +36,59 @@ function addAnswer(CorrectAnswer, UserAnswer){
         TotalCorrectAnswers++;
     }else{
         TotalIncorrectAnswers++;
+    }
+}
+function startTimer(){
+    timer = true;
+    stopWatch();
+}
+
+function stopTimer(){
+    timer = false;
+}
+
+function stopWatch() {
+    if (timer) {
+        count++;
+ 
+        if (count == 100) {
+            second++;
+            count = 0;
+        }
+ 
+        if (second == 60) {
+            minute++;
+            second = 0;
+        }
+ 
+        if (minute == 60) {
+            hour++;
+            minute = 0;
+            second = 0;
+        }
+ 
+        let hrString = hour;
+        let minString = minute;
+        let secString = second;
+        let countString = count;
+ 
+        if (hour < 10) {
+            hrString = "0" + hrString;
+        }
+ 
+        if (minute < 10) {
+            minString = "0" + minString;
+        }
+ 
+        if (second < 10) {
+            secString = "0" + secString;
+        }
+ 
+        if (count < 10) {
+            countString = "0" + countString;
+        }
+        let outTime = hrString + " " + minString + " " + secString;
+        document.getElementById("playTime").innerHTML = "Total play time: " + outTime;
+        setTimeout(stopWatch, 10);
     }
 }
