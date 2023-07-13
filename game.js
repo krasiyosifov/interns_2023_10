@@ -167,6 +167,7 @@ function reset() {
     gameImage.src = './images/transition dog.png';
     UpdateProgressBar();
     addGame();
+    resetStats();
     resetGameTimer();
     startGameTimer();
 }
@@ -308,9 +309,9 @@ document.addEventListener('keydown', (event) => {
     let gamesn = document.getElementById("gamesn").classList.contains("d-none");
     let homesn = document.getElementById("homesn").classList.contains("d-none");
     let endsn = document.getElementById("endsn").classList.contains("d-none");
-    switch(button){
-        case "Escape": homeMenu();
-        break;
+    if(button == "Escape"){
+        homeMenu();
+        reset();
     }
     if(button == "Enter"){
         if(!homesn){

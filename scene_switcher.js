@@ -34,6 +34,11 @@ function endGame(){
     end.classList.remove("d-none");
     setStats()
     document.getElementById("playTime").innerHTML = "Play time: " + outTime
+    if(mode == 2){
+        document.getElementById("totalGames").classList.add("d-none");
+    }else{
+        document.getElementById("totalGames").classList.remove("d-none");
+    }
 }
 function back() {
     set()
