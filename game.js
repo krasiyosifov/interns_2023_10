@@ -241,15 +241,18 @@ function checkAnswer(){
 }
 
 function checkImageAnswers(answer, imgSrc) {
-    if (answer == "sad") {
-        if (dog != 0) {
-           dog--;  
-        }
-    } else {  
-        if (dog != 2) {
-            dog++; 
-        }
+    if(mode != 2){
+       if (answer == "sad") {
+            if (dog != 0) {
+            dog--;  
+            }
+        } else {  
+            if (dog != 2) {
+                dog++; 
+            }
+        } 
     }
+    
     imgSrc.src = images[dog];
     console.log("smenq: " + dog + "s snimka: " + images[dog]);
 }
