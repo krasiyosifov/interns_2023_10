@@ -27,7 +27,6 @@ function resetStats(){
 }
 
 function setStats(){
-    document.getElementById("playTime").innerHTML = "Total play time: ";
     document.getElementById("totalRounds").innerHTML = "Total rounds: " + TotalRounds;
     document.getElementById("totalGames").innerHTML = "Total games: " + TotalGames;
     document.getElementById("correctPoints").innerHTML = "Correct answers: " + TotalCorrectAnswers;
