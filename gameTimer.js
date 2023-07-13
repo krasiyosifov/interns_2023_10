@@ -65,6 +65,7 @@ function gameDuration() {
         if(gameSecond == 0){
             gameDura = "." + gameCountString;
         }
+        gameDura += "s";
         
         setTimeout(gameDuration, 10);
     }

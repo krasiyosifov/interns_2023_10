@@ -103,12 +103,12 @@ function stopWatch() {
         if (count < 10) {
             countString = "0" + countString;
         }
-        outTime = hrString + " " + minString + " ";
+        outTime = hrString + " " + minString + " " + secString;
         outTime = outTime.replaceAll("0", "");
-        outTime += secString;
         if(second == 0){
-            outTime += "." + countString;
+            outTime = "." + countString;
         }
+        outTime += "s";
         setTimeout(stopWatch, 10);
     }
 }
