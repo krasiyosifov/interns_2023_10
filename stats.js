@@ -4,6 +4,7 @@ let TotalGames = 0;
 let TotalAnswers = 0;
 let TotalCorrectAnswers = 0;
 let TotalIncorrectAnswers = 0;
+let OverallPoints = 0;
 
 let hour = 0;
 let minute = 0;
@@ -18,6 +19,7 @@ function resetStats(){
     TotalCorrectAnswers = 0;
     TotalIncorrectAnswers = 0;
     TotalGames = 0;
+    OverallPoints = 0;
     hour = 0;
     minute = 0;
     second = 0;
@@ -31,6 +33,7 @@ function setStats(){
     document.getElementById("correctPoints").innerHTML = "Correct answers: " + TotalCorrectAnswers;
     document.getElementById("incorrectPoints").innerHTML = "Incorrect answers: " + TotalIncorrectAnswers;
     document.getElementById("totalAnswers").innerHTML = "Total answers: " + TotalAnswers;
+    document.getElementById("overallPoints").innerHTML = "Overall points: " + OverallPoints;
 }
 
 function addRound(){
@@ -101,7 +104,9 @@ function stopWatch() {
         if (count < 10) {
             countString = "0" + countString;
         }
-        outTime = hrString + " " + minString + " " + secString + " " + countString;
+        outTime = hrString + " " + minString + " " + secString;
+        outTime = outTime.replaceAll("0", "");
+        outTime = outTime + "." + countString;
         setTimeout(stopWatch, 10);
     }
 }

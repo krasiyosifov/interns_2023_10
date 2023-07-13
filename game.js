@@ -2,7 +2,7 @@ let difficulties = ["Easy", "Normal", "Hard"];
 let level = 0;
 let difficulty = difficulties[0];
 let type;
-let points = 0;
+let correctAnswers = 0;
 let progressP = 0;
 let progressN = 0;
 let rounds = 0;
@@ -135,6 +135,8 @@ function closeModal(){
 }
 
 function openResultModal(){
+    stopGameTimer();
+    document.getElementById("gameDuration").innerHTML = "Game duration: " + gameDura;
     stopTimer()
     modalisShown = true;
     $('#gameResult').modal('show');
@@ -156,20 +158,21 @@ function backspace(){
 
 function reset() {
     rounds=0;
-    points=0;
+    correctAnswers=0;
     progressN=0;
     progressP=0;
     let gameImage = document.getElementById("gameSceneDog");
     gameImage.src = './images/transition dog.png';
     UpdateProgressBar();
     addGame();
-    stopTimer();
+    resetGameTimer();
+    startGameTimer();
 }
 
 function result() {
-    document.getElementById("result").innerHTML = "Result " + points + "/5";
+    document.getElementById("result").innerHTML = "Result " + correctAnswers + "/5";
     let endImage = document.getElementById("endSceneDog");
-    checkImageAnswers(points >= 3 ? 'happy' : 'sad', endImage);
+    checkImageAnswers(correctAnswers >= 3 ? 'happy' : 'sad', endImage);
     openResultModal();
 }
 
@@ -193,14 +196,23 @@ function checkAnswer(){
     let userAnswer = document.getElementById("userInput").value;
     let gameImage = document.getElementById("gameSceneDog")
     if(userAnswer != "" && answer == Number(userAnswer)){
-        points++;
+        correctAnswers++;
         checkImageAnswers('happy', gameImage);
         progressP += 20;
+        switch(difficulty){
+            case "Easy": OverallPoints++;
+            break;
+            case "Normal": OverallPoints += 5;
+            break;
+            case "Hard": OverallPoints += 15;
+            break;
+        }
+
     }else{
         progressN += 20;
         if (mode == 2) {
             result();
-            document.getElementById("result").innerHTML = "Result " + points;
+            document.getElementById("result").innerHTML = "Overall correctAnswers: " + correctAnswers;
         }
     }
     addAnswer(answer, userAnswer)
@@ -215,8 +227,9 @@ function checkAnswer(){
 
     if(rounds == 5 && mode != 2){ 
         result();
+        
         rounds=0;
-        points=0;
+        correctAnswers=0;
     }
 
     switchtype()
