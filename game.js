@@ -29,8 +29,7 @@ function switchMode(num) {
     }
 }
 
-function 
-switchDifficulty () {
+function switchDifficulty () {
     switch(difficulty){
         case "Easy": randomNumbers(0, 10, 0, 10);
         break;
