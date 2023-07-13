@@ -14,6 +14,8 @@ let soundOn = true;
 let modalisShown = false;
 let mode = 0;
 let d = new Date();
+let dog = 1;
+let images = ["./images/sad dog.png", "./images/transition dog.png", "./images/mate.png"];
 let buttons = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "Backspace", "Enter", "+", "-", "*", "/", "f", "c", "Escape"];
 
 function switchMode(num) {
@@ -237,13 +239,19 @@ function checkAnswer(){
     UpdateProgressBar();
 }
 
-function checkImageAnswers(answer,imgSrc) {
-    if ((imgSrc.src === './images/sad dog.png' && answer === 'sad') || (imgSrc.src === './images/mate.png' && answer === 'happy')) {
-        return;
+function checkImageAnswers(answer, imgSrc) {
+    if (answer === "sad") {
+        if (dog != 0) {
+           dog--;     
+        }
+    } else {    
+        if (dog != 2) {
+            dog++; 
+        }
     }
-    return answer === 'happy' ? imgSrc.src = './images/mate.png' : imgSrc.src = './images/sad dog.png'
+    imgSrc.src = images[dog];
+    console.log("smenq: " + dog + "s snimka: " + images[dog]);
 }
-
 
 function randomTask(){
     let a = d.getSeconds();
