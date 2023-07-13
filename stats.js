@@ -11,6 +11,19 @@ let second = 0;
 let count = 0;
 let outTime;
 
+function resetStats(){
+    PlayTime = 0;
+    TotalRounds = 0;
+    TotalAnswers = 0;
+    TotalCorrectAnswers = 0;
+    TotalIncorrectAnswers = 0;
+    TotalGames = 0;
+    hour = 0;
+    minute = 0;
+    second = 0;
+    count = 0;
+}
+
 function setStats(){
     document.getElementById("playTime").innerHTML = "Total play time: ";
     document.getElementById("totalRounds").innerHTML = "Total rounds: " + TotalRounds;

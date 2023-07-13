@@ -27,7 +27,8 @@ function switchMode(num) {
     }
 }
 
-function switchDifficulty () {
+function 
+switchDifficulty () {
     switch(difficulty){
         case "Easy": randomNumbers(0, 10, 0, 10);
         break;
@@ -65,15 +66,28 @@ function levelSwitch() {
 }
 
 function plus(){
-    switchDifficulty ()
+    switch(difficulty){
+        case "Easy": randomNumbers(0, 10, 0, 10);
+        break;
+        case "Normal": randomNumbers(10, 90, 10, 90);
+        break;
+        case "Hard": randomNumbers(200, 799, 10, 90);
+        break;
+    }
     document.getElementById("task").value = numFirst + " + " + numSecond + " = ";
     type = "+";
     answer = numFirst + numSecond;
-    console.log(answer);
 }
 
 function minus(){
-    switchDifficulty ()
+    switch(difficulty){
+        case "Easy": randomNumbers(5, 15, 0, 10);
+        break;
+        case "Normal": randomNumbers(10, 90, 5, 95);
+        break;
+        case "Hard": randomNumbers(300, 699, 10, 90);
+        break;
+    }
     if(numFirst<numSecond){
         let temp = numFirst;
         numFirst = numSecond;
@@ -82,19 +96,31 @@ function minus(){
     document.getElementById("task").value = numFirst + " - " + numSecond + " = ";
     type = "-";
     answer = numFirst - numSecond;
-    console.log(answer);
 }
 
 function multiplication(){
-    switchDifficulty ()
+    switch(difficulty){
+        case "Easy": randomNumbers(0, 10, 0, 10);
+        break;
+        case "Normal": randomNumbers(10, 90, 0, 9);
+        break;
+        case "Hard": randomNumbers(200, 799, 10, 90);
+        break;
+    }
     document.getElementById("task").value = numFirst + " * " + numSecond + " = ";
     type = "*";
     answer = numFirst * numSecond;
-    console.log(answer);
 }
 
 function division(){
-    switchDifficulty ()
+    switch(difficulty){
+        case "Easy": randomNumbers(1, 9, 0, 10);
+        break;
+        case "Normal": randomNumbers(2, 8, 0, 20);
+        break;
+        case "Hard": randomNumbers(10, 89, 1, 9);
+        break;
+    }
     let finalFirstNum = numFirst * numSecond;
     if(finalFirstNum < 100  && difficulty == "Hard"){
         return division();
@@ -102,7 +128,6 @@ function division(){
     answer = finalFirstNum / numFirst;
     document.getElementById("task").value = finalFirstNum + " ÷ " + numFirst + " = ";
     type = "/";
-    console.log(answer);
 }
 
 function closeModal(){
@@ -170,13 +195,12 @@ function checkAnswer(){
     if(userAnswer != "" && answer == Number(userAnswer)){
         points++;
         checkImageAnswers('happy', gameImage);
+        progressP += 20;
     }else{
+        progressN += 20;
         if (mode == 2) {
             result();
             document.getElementById("result").innerHTML = "Result " + points;
-            progressN += 100;
-        } else {
-            progressN += 20;
         }
     }
     addAnswer(answer, userAnswer)
@@ -211,7 +235,6 @@ function checkImageAnswers(answer,imgSrc) {
 function randomTask(){
     let a = d.getSeconds();
     let rand = Math.round(Math.random()*3);
-    console.log("level: " + difficulties[level]);
     switch(rand){
         case 0: plus();
         break;
