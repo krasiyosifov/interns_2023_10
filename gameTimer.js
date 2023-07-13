@@ -62,7 +62,10 @@ function gameDuration() {
         }
         gameDura = hrString + " " + minString + " " + secString;
         gameDura = gameDura.replaceAll("0", "");
-        gameDura = gameDura + "." + gameCountString;
+        if(gameSecond == 0){
+            gameDura = "." + gameCountString;
+        }
+        
         setTimeout(gameDuration, 10);
     }
 }

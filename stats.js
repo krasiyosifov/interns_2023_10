@@ -103,9 +103,12 @@ function stopWatch() {
         if (count < 10) {
             countString = "0" + countString;
         }
-        outTime = hrString + " " + minString + " " + secString;
+        outTime = hrString + " " + minString + " ";
         outTime = outTime.replaceAll("0", "");
-        outTime = outTime + "." + countString;
+        outTime += secString;
+        if(second == 0){
+            outTime += "." + countString;
+        }
         setTimeout(stopWatch, 10);
     }
 }
