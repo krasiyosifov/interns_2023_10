@@ -214,7 +214,7 @@ function checkAnswer(){
         progressN += 20;
         if (mode == 2) {
             result();
-            document.getElementById("result").innerHTML = "Overall correctAnswers: " + correctAnswers;
+            document.getElementById("result").innerHTML = "Correct Answers: " + correctAnswers;
         }
     }
     addAnswer(answer, userAnswer)

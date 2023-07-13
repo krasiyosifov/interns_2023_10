@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@600&display=swap');
+
+
+
+.disable-zoom {
+    touch-action: manipulation;
+    font-family: 'Roboto Mono', monospace;
+}
+
+
 .btn3d {
     position: relative;
     top: -6px;
@@ -56,18 +66,18 @@
 .sidebtn{
     background-color: #a17ed2; 
     border: 2px solid #6e609f;
-    color: #f0d9ff;
+    color: #f0d9ff !important;
 }
 
 .sidebtn:hover,
 .sidebtn:focus {
-    background-color: #a17ed2 !important;
+    background-color: #9771cc !important;
     border: 2px solid #6e609f !important;
     color: #f0d9ff !important;
 }
 .sidebtn:active,
 .sidebtn.active{
-    background-color: #a17ed2 !important;
+    background-color: #9068c7 !important;
     border: 2px solid #6e609f !important;
     color: #f0d9ff !important;
 }
@@ -81,13 +91,12 @@
 .startbtn{
     background-color: #a17ed2 !important;
     border: 2px solid #6e609f !important;
-    width: 25vw !important;
+    width: 30vw !important;
     color: #f0d9ff !important;
-    font-size: 20px !important;
+    font-size: 120% !important;
 }
 
 .btnstl {
-    font-family: 'Nunito', sans-serif;
         color: #1f0e34;
 }
 input::-webkit-outer-spin-button,
@@ -101,18 +110,15 @@ input[type=number] {
 
 .title{
     color:#a17ed2;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .pars{
-    color:#a17ed2;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:#30183d;
     font-size: large;
 }
 
 .res{
-    color: #a17ed2;
-    font-family: 'Lilita One', cursive;
+    color: #30183d;
 }
 .dropdown-menu-dark {
     --bs-dropdown-bg: #a17ed2;
