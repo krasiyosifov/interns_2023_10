@@ -304,8 +304,25 @@ document.addEventListener('keydown', (event) => {
     event.preventDefault();
 
     var button = event.key;
-    
-    if(!$('#gameResult').hasClass('show') && !modalisShown && !document.getElementById("gamesn").classList.contains("d-none")){
+
+    let gamesn = document.getElementById("gamesn").classList.contains("d-none");
+    let homesn = document.getElementById("homesn").classList.contains("d-none");
+    let endsn = document.getElementById("endsn").classList.contains("d-none");
+    switch(button){
+        case "Escape": homeMenu();
+        break;
+    }
+    if(button == "Enter"){
+        if(!homesn){
+            gameStart();
+            sound(1); 
+        }else if(!endsn){
+            homeMenu();
+            resetStats();
+        }
+    }
+
+    if(!$('#gameResult').hasClass('show') && !gamesn){
         for(let i = 0; i< buttons.length; i++){
             if(buttons[i] == button){
                 document.getElementById(button).classList.add("active");
@@ -334,15 +351,6 @@ document.addEventListener('keydown', (event) => {
             break;
             default: numeros(button);
         }
-    }    
-}, false);
-
-document.addEventListener('keydown', (event) => {
-    event.target.blur();
-    event.preventDefault();
-    var button1 = event.key;
-        switch(button1){
-            case "Escape": homeMenu();
-            break;
-        }  
+    }
+         
 }, false);
