@@ -300,6 +300,9 @@ function soundTurn() {
     }
 }
 document.addEventListener('keydown', (event) => {
+    event.target.blur();
+    event.preventDefault();
+
     var button = event.key;
     
     if(!$('#gameResult').hasClass('show') && !modalisShown && !document.getElementById("gamesn").classList.contains("d-none")){
@@ -335,6 +338,8 @@ document.addEventListener('keydown', (event) => {
 }, false);
 
 document.addEventListener('keydown', (event) => {
+    event.target.blur();
+    event.preventDefault();
     var button1 = event.key;
         switch(button1){
             case "Escape": homeMenu();
