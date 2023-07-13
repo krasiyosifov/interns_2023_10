@@ -45,18 +45,6 @@ function gameDuration() {
         let secString = gameSecond;
         let gameCountString = gameCount;
  
-        if (gameHour < 10) {
-            hrString = "0" + hrString;
-        }
- 
-        if (gameMinute < 10) {
-            minString = "0" + minString;
-        }
- 
-        if (gameSecond < 10) {
-            secString = "0" + secString;
-        }
- 
         if (gameCount < 10) {
             gameCountString = "0" + gameCountString;
         }

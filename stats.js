@@ -88,20 +88,15 @@ function stopWatch() {
         let secString = second;
         let countString = count;
  
-        if (hour < 10) {
-            hrString = "0" + hrString;
-        }
- 
-        if (minute < 10) {
-            minString = "0" + minString;
-        }
- 
-        if (second < 10) {
-            secString = "0" + secString;
-        }
- 
         if (count < 10) {
             countString = "0" + countString;
+        }
+
+        if(minute > 0){
+            minString = minute + "m";
+        }
+        if(hour > 0){
+            hrString = hour + "h";
         }
         outTime = hrString + " " + minString + " " + secString;
         outTime = outTime.replaceAll("0", "");
