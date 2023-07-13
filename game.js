@@ -159,6 +159,7 @@ function backspace(){
 
 function reset() {
     rounds=0;
+    dog = 1;
     correctAnswers=0;
     progressN=0;
     progressP=0;
@@ -239,11 +240,11 @@ function checkAnswer(){
 }
 
 function checkImageAnswers(answer, imgSrc) {
-    if (answer === "sad") {
+    if (answer == "sad") {
         if (dog != 0) {
-           dog--;     
+           dog--;  
         }
-    } else {    
+    } else {  
         if (dog != 2) {
             dog++; 
         }
