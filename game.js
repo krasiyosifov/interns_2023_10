@@ -167,7 +167,6 @@ function reset() {
     gameImage.src = './images/transition dog.png';
     UpdateProgressBar();
     addGame();
-    resetStats();
     resetGameTimer();
     startGameTimer();
 }
